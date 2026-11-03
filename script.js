@@ -1,14 +1,6 @@
 (function () {
   var root = document.documentElement;
 
-  // --- логотип: разбиваем на буквы для анимации появления ---
-  var word = document.querySelector('.logo-word');
-  'Horoshi'.split('').forEach(function (c, i) {
-    var s = document.createElement('span');
-    s.className = 'ch'; s.textContent = c; s.style.setProperty('--i', i);
-    word.appendChild(s);
-  });
-
   // --- переключатель темы ---
   var toggle = document.getElementById('theme-toggle');
   function syncToggle() {
@@ -49,6 +41,29 @@
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  // --- превью в карточках: беззвучный цикл при наведении / в зоне видимости ---
+  var canHover = matchMedia('(hover: hover)').matches;
+  function setPrev(card, on) {
+    var v = card.querySelector('video'); if (!v) return;
+    if (on) {
+      if (!v.src) v.src = v.dataset.src;
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+      v.classList.add('on');
+    } else { v.pause(); v.classList.remove('on'); }
+  }
+  document.querySelectorAll('.case').forEach(function (c) {
+    if (canHover) {
+      c.addEventListener('mouseenter', function () { setPrev(c, true); });
+      c.addEventListener('mouseleave', function () { setPrev(c, false); });
+    }
+  });
+  if (!canHover && 'IntersectionObserver' in window) {
+    var po = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { setPrev(e.target, e.isIntersecting && e.intersectionRatio > .6); });
+    }, { threshold: [0, .6, 1] });
+    document.querySelectorAll('.case').forEach(function (c) { po.observe(c); });
+  }
 
   // --- окно просмотра ролика ---
   var modal = document.getElementById('modal');

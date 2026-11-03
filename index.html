@@ -9,7 +9,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23111'/%3E%3Ctext x='16' y='23' font-size='20' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'%3EH%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@500;600&family=Ultra&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script>
   // тема до отрисовки, чтобы не мигало
@@ -55,9 +55,23 @@
 
   <!-- ПЕРВАЯ СТРАНИЦА -->
   <section class="hero">
-    <h1 class="logo-reveal" aria-label="Horoshi Studios">
-      <span class="logo-word" aria-hidden="true"></span>
-      <span class="logo-sub" aria-hidden="true">studios</span>
+    <h1 class="logo" aria-label="Horoshi Studios">
+      <svg viewBox="0 -30 1000 490" role="img" aria-hidden="true">
+        <defs>
+          <path id="lg-arc" d="M 30 410 Q 500 40 970 410"/>
+          
+          <g id="lg-t">
+            <text class="lg-main" font-size="182" text-anchor="middle"><textPath href="#lg-arc" startOffset="50%">HOROSHI</textPath></text>
+          </g>
+        </defs>
+        <g class="lg-group">
+          <g class="lg-extrude"><use href="#lg-t" class="lg-ext" style="--i:14"/><use href="#lg-t" class="lg-ext" style="--i:13"/><use href="#lg-t" class="lg-ext" style="--i:12"/><use href="#lg-t" class="lg-ext" style="--i:11"/><use href="#lg-t" class="lg-ext" style="--i:10"/><use href="#lg-t" class="lg-ext" style="--i:9"/><use href="#lg-t" class="lg-ext" style="--i:8"/><use href="#lg-t" class="lg-ext" style="--i:7"/><use href="#lg-t" class="lg-ext" style="--i:6"/><use href="#lg-t" class="lg-ext" style="--i:5"/><use href="#lg-t" class="lg-ext" style="--i:4"/><use href="#lg-t" class="lg-ext" style="--i:3"/><use href="#lg-t" class="lg-ext" style="--i:2"/><use href="#lg-t" class="lg-ext" style="--i:1"/></g>
+          <use href="#lg-t" class="lg-face"/>
+          <g class="lg-small">
+            <text class="lg-studios" font-size="52" text-anchor="middle" x="500" y="34">STUDIOS</text>
+          </g>
+        </g>
+      </svg>
     </h1>
     <div class="hero-foot">
       <p class="hero-lead">Видеопродакшн: рекламные ролики, motion и AI-видео.</p>
@@ -83,28 +97,28 @@
 
     <!-- Чтобы подключить ролик: добавьте data-src="videos/имя.mp4" в карточку (файл положите в папку videos/). -->
     <div class="cases">
-      <article class="case tall reveal" tabindex="0" data-title="Рекламный ролик" style="--h1:262;--h2:320">
-        <div class="poster"><span class="play"></span></div>
+      <article class="case tall reveal" tabindex="0" data-title="Рекламный ролик" style="--h1:262;--h2:320" data-src="media/videos/0.mp4">
+        <div class="poster"><img src="media/posters/0.webp" alt="" loading="lazy"><video muted loop playsinline preload="none" data-src="media/videos/0.mp4"></video><span class="play"></span></div>
         <div class="case-info"><h3>Рекламный ролик</h3><p>Бренд · 30 сек</p></div>
       </article>
-      <article class="case wide reveal" tabindex="0" data-title="Motion-графика" style="--h1:190;--h2:250">
-        <div class="poster"><span class="play"></span></div>
+      <article class="case wide reveal" tabindex="0" data-title="Motion-графика" style="--h1:190;--h2:250" data-src="media/videos/1.mp4">
+        <div class="poster"><img src="media/posters/1.webp" alt="" loading="lazy"><video muted loop playsinline preload="none" data-src="media/videos/1.mp4"></video><span class="play"></span></div>
         <div class="case-info"><h3>Motion-графика</h3><p>Заставка · 15 сек</p></div>
       </article>
-      <article class="case wide reveal" tabindex="0" data-title="AI-видео" style="--h1:14;--h2:330">
-        <div class="poster"><span class="play"></span></div>
+      <article class="case wide reveal" tabindex="0" data-title="AI-видео" style="--h1:14;--h2:330" data-src="media/videos/2.mp4">
+        <div class="poster"><img src="media/posters/2.webp" alt="" loading="lazy"><video muted loop playsinline preload="none" data-src="media/videos/2.mp4"></video><span class="play"></span></div>
         <div class="case-info"><h3>AI-видео</h3><p>Концепт · 20 сек</p></div>
       </article>
-      <article class="case tall reveal" tabindex="0" data-title="Reels / Shorts" style="--h1:140;--h2:200">
-        <div class="poster"><span class="play"></span></div>
+      <article class="case tall reveal" tabindex="0" data-title="Reels / Shorts" style="--h1:140;--h2:200" data-src="media/videos/3.mp4">
+        <div class="poster"><img src="media/posters/3.webp" alt="" loading="lazy"><video muted loop playsinline preload="none" data-src="media/videos/3.mp4"></video><span class="play"></span></div>
         <div class="case-info"><h3>Reels / Shorts</h3><p>Соцсети · вертикаль</p></div>
       </article>
-      <article class="case tall reveal" tabindex="0" data-title="Промо продукта" style="--h1:300;--h2:30">
-        <div class="poster"><span class="play"></span></div>
+      <article class="case tall reveal" tabindex="0" data-title="Промо продукта" style="--h1:300;--h2:30" data-src="media/videos/4.mp4">
+        <div class="poster"><img src="media/posters/4.webp" alt="" loading="lazy"><video muted loop playsinline preload="none" data-src="media/videos/4.mp4"></video><span class="play"></span></div>
         <div class="case-info"><h3>Промо продукта</h3><p>Продукт · 45 сек</p></div>
       </article>
-      <article class="case wide reveal" tabindex="0" data-title="Клип / атмосфера" style="--h1:50;--h2:280">
-        <div class="poster"><span class="play"></span></div>
+      <article class="case wide reveal" tabindex="0" data-title="Клип / атмосфера" style="--h1:50;--h2:280" data-src="media/videos/5.mp4">
+        <div class="poster"><img src="media/posters/5.webp" alt="" loading="lazy"><video muted loop playsinline preload="none" data-src="media/videos/5.mp4"></video><span class="play"></span></div>
         <div class="case-info"><h3>Клип / атмосфера</h3><p>Арт · 1 мин</p></div>
       </article>
     </div>
