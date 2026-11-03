@@ -16,7 +16,7 @@
   });
 
   // --- появление блоков при прокрутке ---
-  var items = document.querySelectorAll('.reveal, .lines');
+  var items = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
@@ -41,59 +41,64 @@
     stickers.forEach(function (s) { so.observe(s); });
   } else { stickers.forEach(function (s) { s.classList.add('in'); }); }
 
-  // --- подсветка пункта меню по текущей секции ---
+  // --- меню: два экрана. Главная / всё остальное, а клик по пункту подсвечивает его ---
   var links = document.querySelectorAll('.nav-links a');
-  var sections = ['top', 'cases', 'about', 'team', 'contacts'].map(function (id) { return document.getElementById(id); });
+  var manual = null;
+  function setActive(i) { links.forEach(function (a, k) { a.classList.toggle('active', k === i); }); }
   function onScroll() {
-    var y = window.scrollY + window.innerHeight * 0.4, cur = 0;
-    sections.forEach(function (s, i) { if (s && s.offsetTop <= y) cur = i; });
-    links.forEach(function (a, i) { a.classList.toggle('active', i === cur); });
+    var y = window.scrollY, h = window.innerHeight;
+    if (y < h * 0.5) { manual = null; setActive(0); }
+    else setActive(manual == null ? 1 : manual);
   }
+  links.forEach(function (a, i) {
+    a.addEventListener('click', function () { manual = i === 0 ? null : i; setActive(i); });
+  });
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // --- превью в карточках: беззвучный цикл при наведении / в зоне видимости ---
-  var canHover = matchMedia('(hover: hover)').matches;
-  function setPrev(card, on) {
-    var v = card.querySelector('video'); if (!v) return;
-    if (on) {
-      if (!v.src) v.src = v.dataset.src;
-      var p = v.play(); if (p && p.catch) p.catch(function () {});
-      v.classList.add('on');
-    } else { v.pause(); v.classList.remove('on'); }
-  }
-  document.querySelectorAll('.case').forEach(function (c) {
-    if (canHover) {
-      c.addEventListener('mouseenter', function () { setPrev(c, true); });
-      c.addEventListener('mouseleave', function () { setPrev(c, false); });
-    }
-  });
-  if (!canHover && 'IntersectionObserver' in window) {
-    var po = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { setPrev(e.target, e.isIntersecting && e.intersectionRatio > .6); });
-    }, { threshold: [0, .6, 1] });
-    document.querySelectorAll('.case').forEach(function (c) { po.observe(c); });
-  }
-
-  // --- окно просмотра ролика ---
+  // --- окно папки: ролик, описание и переключатель кейсов внутри папки ---
   var modal = document.getElementById('modal');
   var media = document.getElementById('modal-media');
   var title = document.getElementById('modal-title');
-  var lastFocus;
+  var folderLbl = document.getElementById('modal-folder');
+  var metaEl = document.getElementById('modal-meta');
+  var descEl = document.getElementById('modal-desc');
+  var tagsEl = document.getElementById('modal-tags');
+  var thumbsEl = document.getElementById('modal-thumbs');
+  var lastFocus, current = [];
 
-  function openCase(card) {
-    lastFocus = card;
-    title.textContent = card.dataset.title || '';
-    var d = card.querySelector('.desc');
-    document.getElementById('modal-desc').textContent = d ? d.textContent : '';
+  function showCase(i) {
+    var it = current[i];
+    title.textContent = it.title;
+    metaEl.textContent = it.meta;
+    descEl.textContent = it.desc;
+    tagsEl.innerHTML = it.tags;
     media.innerHTML = '';
-    if (card.dataset.src) {
+    if (it.src) {
       var v = document.createElement('video');
-      v.src = card.dataset.src; v.controls = true; v.autoplay = true; v.playsInline = true;
+      v.src = it.src; v.poster = it.poster; v.controls = true; v.autoplay = true; v.playsInline = true;
       media.appendChild(v);
-    } else {
-      media.innerHTML = '<p>Ролик скоро появится</p>';
-    }
+    } else { media.innerHTML = '<p>Ролик скоро появится</p>'; }
+    Array.prototype.forEach.call(thumbsEl.children, function (li, k) {
+      li.firstChild.setAttribute('aria-current', k === i ? 'true' : 'false');
+    });
+  }
+  function openFolder(f) {
+    lastFocus = f;
+    current = Array.prototype.map.call(f.querySelectorAll('.f-items > li'), function (li) {
+      return { src: li.dataset.src, poster: li.dataset.poster, title: li.dataset.title, meta: li.dataset.meta,
+               desc: li.querySelector('.d').textContent, tags: li.querySelector('.tg').innerHTML };
+    });
+    folderLbl.textContent = f.dataset.folder || '';
+    thumbsEl.innerHTML = '';
+    current.forEach(function (it, i) {
+      var li = document.createElement('li'), b = document.createElement('button');
+      b.type = 'button'; b.innerHTML = '<img src="' + it.poster + '" alt=""><span></span>';
+      b.querySelector('span').textContent = it.title;
+      b.addEventListener('click', function () { showCase(i); });
+      li.appendChild(b); thumbsEl.appendChild(li);
+    });
+    showCase(0);
     modal.hidden = false;
     document.body.style.overflow = 'hidden';
     document.getElementById('modal-close').focus();
@@ -103,10 +108,10 @@
     document.body.style.overflow = '';
     if (lastFocus) lastFocus.focus();
   }
-  document.querySelectorAll('.case').forEach(function (c) {
-    c.addEventListener('click', function () { openCase(c); });
-    c.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCase(c); }
+  document.querySelectorAll('.folder').forEach(function (f) {
+    f.addEventListener('click', function () { openFolder(f); });
+    f.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openFolder(f); }
     });
   });
   document.getElementById('modal-close').addEventListener('click', closeModal);

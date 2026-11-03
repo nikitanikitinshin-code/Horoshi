@@ -9,7 +9,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23111'/%3E%3Ctext x='16' y='23' font-size='20' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'%3EH%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@500;600&family=Yeseva+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@500;600&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script>
   // тема до отрисовки, чтобы не мигало
@@ -65,140 +65,100 @@
     <img class="sticker back" src="media/stickers/star-c.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:84px;--r:-20deg;right:8%;top:11%">
     <h1 class="logo"><img src="media/logo.webp" width="1600" height="740" alt="Horoshi Studios" fetchpriority="high"></h1>
     <div class="hero-foot">
-      <p class="hero-lead">Видеопродакшн: рекламные ролики, motion и AI-видео.</p>
+      <p class="hero-lead">Делаем ролики, которые смотрят до конца. Реклама, motion и AI-видео.</p>
       <a class="scroll-link" href="#cases">Кейсы <i>↓</i></a>
     </div>
   </section>
 
-  <!-- МАНИФЕСТ: крупная типографика -->
-  <section class="statement">
-    <img class="sticker front" src="media/stickers/star-c.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:150px;--r:12deg;right:9%;top:8vh">
-    <img class="sticker back" src="media/stickers/star-a.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:110px;--r:-18deg;left:46%;bottom:5vh">
-    <h2 class="big lines">
-      <span class="ln"><span>Делаем ролики,</span></span>
-      <span class="ln"><span>которые <em>смотрят</em></span></span>
-      <span class="ln"><span>до конца.</span></span>
-    </h2>
-  </section>
+  <!-- ВТОРАЯ СТРАНИЦА: всё остальное на одном экране -->
+  <section class="page2" id="cases">
+    <img class="sticker back" src="media/stickers/star-b.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:84px;--r:-10deg;left:38%;top:26vh">
+    <img class="sticker front" src="media/stickers/star-c.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:64px;--r:20deg;right:5%;top:11vh">
+    <img class="sticker front" src="media/stickers/star-a.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:78px;--r:-14deg;right:2.5%;top:44vh">
+    <img class="sticker back" src="media/stickers/star-c.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:66px;--r:16deg;left:50%;top:66vh">
+    <img class="sticker front" src="media/stickers/star-b.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:58px;--r:-22deg;left:2%;bottom:5vh">
+    <img class="sticker back" src="media/stickers/star-a.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:96px;--r:12deg;right:3%;bottom:15vh">
+    <div class="p2-in">
+      <div class="p2-top">
+        <header class="p2-head reveal"><p class="eyebrow">Кейсы</p><h2 class="t-l">Избранные работы</h2></header>
+        <div class="folders">
+      <article class="folder reveal" tabindex="0" role="button" aria-label="Открыть папку: Реклама и продукт" data-folder="Реклама и продукт">
+        <div class="f-back"></div>
+        <div class="f-sheets"><img class="sheet s1" src="media/posters/0.webp" alt="" loading="lazy"><img class="sheet s2" src="media/posters/4.webp" alt="" loading="lazy"></div>
+        <div class="f-front"><h3>Реклама и продукт</h3><p>2 ролика · бренд, товар</p><i class="f-go" aria-hidden="true">↗</i></div>
+        <ul class="f-items" hidden>
+          <li data-src="media/videos/0.mp4" data-poster="media/posters/0.webp" data-title="Рекламный ролик" data-meta="Бренд · 30 сек"><p class="d">Пример рекламного ролика для парфюмерного бренда: стеклянный флакон на пьедестале, всплеск жидкости в замедленной съёмке, чистая студийная картинка. Берём на себя идею, раскадровку, генерацию кадров, монтаж, цветокоррекцию и звук.</p><ul class="tg"><li>Идея и сценарий</li><li>Генерация</li><li>Монтаж</li><li>Цвет и звук</li><li class="demo">Демо</li></ul></li>
+          <li data-src="media/videos/4.mp4" data-poster="media/posters/4.webp" data-title="Промо продукта" data-meta="Продукт · 45 сек"><p class="d">Промо наушников: детали разлетаются в невесомости и собираются обратно. Показываем устройство и его преимущества так, как не снять на обычную камеру. Подходит для карточек маркетплейсов, лендингов и рекламы.</p><ul class="tg"><li>Продукт</li><li>3D</li><li>Промо</li><li class="demo">Демо</li></ul></li>
+        </ul>
+      </article>
+      <article class="folder reveal" tabindex="0" role="button" aria-label="Открыть папку: Motion и AI" data-folder="Motion и AI">
+        <div class="f-back"></div>
+        <div class="f-sheets"><img class="sheet s1" src="media/posters/1.webp" alt="" loading="lazy"><img class="sheet s2" src="media/posters/2.webp" alt="" loading="lazy"></div>
+        <div class="f-front"><h3>Motion и AI</h3><p>2 ролика · графика, генерация</p><i class="f-go" aria-hidden="true">↗</i></div>
+        <ul class="f-items" hidden>
+          <li data-src="media/videos/1.mp4" data-poster="media/posters/1.webp" data-title="Motion-графика" data-meta="Заставка · 15 сек"><p class="d">Заставка из глянцевых 3D-форм в фирменных цветах. Подходит для интро канала, презентации или рекламной вставки. Подгоняем под вашу айдентику: палитра, ритм, длительность и форматы выгрузки.</p><ul class="tg"><li>Motion</li><li>3D</li><li>Айдентика</li><li class="demo">Демо</li></ul></li>
+          <li data-src="media/videos/2.mp4" data-poster="media/posters/2.webp" data-title="AI-видео" data-meta="Концепт · 20 сек"><p class="d">Концепт-ролик в генеративной графике: гигантский кит над розовой пустыней, кинематографичный свет и движение камеры. Собираем сцены, которые трудно или слишком дорого снять, без съёмочной группы и локаций.</p><ul class="tg"><li>AI-видео</li><li>Концепт</li><li>Визуальный стиль</li><li class="demo">Демо</li></ul></li>
+        </ul>
+      </article>
+      <article class="folder reveal" tabindex="0" role="button" aria-label="Открыть папку: Соцсети и клипы" data-folder="Соцсети и клипы">
+        <div class="f-back"></div>
+        <div class="f-sheets"><img class="sheet s1" src="media/posters/3.webp" alt="" loading="lazy"><img class="sheet s2" src="media/posters/5.webp" alt="" loading="lazy"></div>
+        <div class="f-front"><h3>Соцсети и клипы</h3><p>2 ролика · вертикаль, арт</p><i class="f-go" aria-hidden="true">↗</i></div>
+        <ul class="f-items" hidden>
+          <li data-src="media/videos/3.mp4" data-poster="media/posters/3.webp" data-title="Reels / Shorts" data-meta="Соцсети · вертикаль"><p class="d">Вертикальный ролик для Reels, Shorts и TikTok: дождливый неоновый город, живая камера, быстрый ритм. Делаем серии под вашу рубрику: сценарий, монтаж, субтитры, звук и нарезки под каждую площадку.</p><ul class="tg"><li>Reels</li><li>Shorts</li><li>TikTok</li><li>Субтитры</li><li class="demo">Демо</li></ul></li>
+          <li data-src="media/videos/5.mp4" data-poster="media/posters/5.webp" data-title="Клип / атмосфера" data-meta="Арт · 1 мин"><p class="d">Атмосферный клип в стилистике плёнки семидесятых: пляж, золотой час, зерно и тёплые цвета. Для музыкантов и брендов, которым нужно настроение и образ, а не прямая реклама.</p><ul class="tg"><li>Клип</li><li>Стилизация</li><li>Цветокор</li><li class="demo">Демо</li></ul></li>
+        </ul>
+      </article>
+        </div>
+      </div>
 
-  <!-- КЕЙСЫ -->
-  <section class="section" id="cases">
-    <img class="sticker back" src="media/stickers/star-b.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:150px;--r:-10deg;left:min(44%,520px);top:9vh">
-    <img class="sticker front" src="media/stickers/star-c.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:100px;--r:20deg;right:3%;top:12vh">
-    <header class="section-head reveal">
-      <p class="eyebrow">(01) Кейсы</p>
-      <h2 class="big">Избранные<br>работы</h2>
-    </header>
+      <div class="p2-mid">
+        <section id="about" class="blk reveal">
+          <h2 class="t-m">Чем занимаемся</h2>
+          <ul class="svc">
+            <li><h3>Рекламные ролики</h3><p>Идея, сценарий и монтаж под задачу бренда.</p></li>
+            <li><h3>Motion-дизайн</h3><p>Графика, титры, заставки, айдентика в движении.</p></li>
+            <li><h3>AI-видео</h3><p>Сцены и персонажи, которые трудно или дорого снять.</p></li>
+            <li><h3>Монтаж и соцсети</h3><p>Reels, Shorts, TikTok: ритм, субтитры, звук.</p></li>
+          </ul>
+        </section>
+        <section id="team" class="blk reveal">
+          <h2 class="t-m">О нас</h2>
+          <!-- h0, h1 — реальные фото команды; h2, h3 — заглушки. Подписать: должность и имя -->
+          <ul class="heads">
+            <li class="head" style="--rot:-3deg"><img src="media/team/h0.webp" alt="Участник команды" loading="lazy"><b>Должность</b><span>Имя Фамилия</span></li>
+            <li class="head" style="--rot:2deg"><img src="media/team/h1.webp" alt="Участник команды" loading="lazy"><b>Должность</b><span>Имя Фамилия</span></li>
+            <li class="head" style="--rot:-2deg"><img src="media/team/h2.webp" alt="Участник команды" loading="lazy"><b>Должность</b><span>Имя Фамилия</span></li>
+            <li class="head" style="--rot:3deg"><img src="media/team/h3.webp" alt="Участник команды" loading="lazy"><b>Должность</b><span>Имя Фамилия</span></li>
+          </ul>
+        </section>
+      </div>
 
-    <!-- Чтобы подключить ролик: добавьте data-src="videos/имя.mp4" в карточку (файл положите в папку videos/). -->
-    <div class="cases">
-      <article class="case tall reveal" tabindex="0" data-title="Рекламный ролик" style="--h1:262;--h2:320" data-src="media/videos/0.mp4">
-        <div class="poster"><img src="media/posters/0.webp" alt="" loading="lazy"><video muted loop playsinline preload="none" data-src="media/videos/0.mp4"></video><span class="play"></span></div>
-        <div class="case-info">
-          <div class="case-head"><h3>Рекламный ролик</h3><p class="meta">Бренд · 30 сек</p></div>
-          <p class="desc">Пример рекламного ролика для парфюмерного бренда: стеклянный флакон на пьедестале, всплеск жидкости в замедленной съёмке, чистая студийная картинка. Берём на себя идею, раскадровку, генерацию кадров, монтаж, цветокоррекцию и звук.</p>
-          <ul class="tags"><li>Идея и сценарий</li><li>Генерация</li><li>Монтаж</li><li>Цвет и звук</li><li class="demo">Демо</li></ul>
+      <footer id="contacts" class="p2-foot reveal">
+        <h2 class="t-m">Давайте поговорим</h2>
+        <div class="contact-links">
+          <a class="mail" href="mailto:hello@horoshi.studios">hello@horoshi.studios</a>
+          <a class="btn ghost" href="https://t.me/horoshi_studios" target="_blank" rel="noopener">Telegram ↗</a>
         </div>
-      </article>
-      <article class="case wide reveal" tabindex="0" data-title="Motion-графика" style="--h1:190;--h2:250" data-src="media/videos/1.mp4">
-        <div class="poster"><img src="media/posters/1.webp" alt="" loading="lazy"><video muted loop playsinline preload="none" data-src="media/videos/1.mp4"></video><span class="play"></span></div>
-        <div class="case-info">
-          <div class="case-head"><h3>Motion-графика</h3><p class="meta">Заставка · 15 сек</p></div>
-          <p class="desc">Заставка из глянцевых 3D-форм в фирменных цветах. Подходит для интро канала, презентации или рекламной вставки. Подгоняем под вашу айдентику: палитра, ритм, длительность и форматы выгрузки.</p>
-          <ul class="tags"><li>Motion</li><li>3D</li><li>Айдентика</li><li class="demo">Демо</li></ul>
-        </div>
-      </article>
-      <article class="case wide reveal" tabindex="0" data-title="AI-видео" style="--h1:14;--h2:330" data-src="media/videos/2.mp4">
-        <div class="poster"><img src="media/posters/2.webp" alt="" loading="lazy"><video muted loop playsinline preload="none" data-src="media/videos/2.mp4"></video><span class="play"></span></div>
-        <div class="case-info">
-          <div class="case-head"><h3>AI-видео</h3><p class="meta">Концепт · 20 сек</p></div>
-          <p class="desc">Концепт-ролик в генеративной графике: гигантский кит над розовой пустыней, кинематографичный свет и движение камеры. Собираем сцены, которые трудно или слишком дорого снять, без съёмочной группы и локаций.</p>
-          <ul class="tags"><li>AI-видео</li><li>Концепт</li><li>Визуальный стиль</li><li class="demo">Демо</li></ul>
-        </div>
-      </article>
-      <article class="case tall reveal" tabindex="0" data-title="Reels / Shorts" style="--h1:140;--h2:200" data-src="media/videos/3.mp4">
-        <div class="poster"><img src="media/posters/3.webp" alt="" loading="lazy"><video muted loop playsinline preload="none" data-src="media/videos/3.mp4"></video><span class="play"></span></div>
-        <div class="case-info">
-          <div class="case-head"><h3>Reels / Shorts</h3><p class="meta">Соцсети · вертикаль</p></div>
-          <p class="desc">Вертикальный ролик для Reels, Shorts и TikTok: дождливый неоновый город, живая камера, быстрый ритм. Делаем серии под вашу рубрику: сценарий, монтаж, субтитры, звук и нарезки под каждую площадку.</p>
-          <ul class="tags"><li>Reels</li><li>Shorts</li><li>TikTok</li><li>Субтитры</li><li class="demo">Демо</li></ul>
-        </div>
-      </article>
-      <article class="case tall reveal" tabindex="0" data-title="Промо продукта" style="--h1:300;--h2:30" data-src="media/videos/4.mp4">
-        <div class="poster"><img src="media/posters/4.webp" alt="" loading="lazy"><video muted loop playsinline preload="none" data-src="media/videos/4.mp4"></video><span class="play"></span></div>
-        <div class="case-info">
-          <div class="case-head"><h3>Промо продукта</h3><p class="meta">Продукт · 45 сек</p></div>
-          <p class="desc">Промо наушников: детали разлетаются в невесомости и собираются обратно. Показываем устройство и его преимущества так, как не снять на обычную камеру. Подходит для карточек маркетплейсов, лендингов и рекламы.</p>
-          <ul class="tags"><li>Продукт</li><li>3D</li><li>Промо</li><li class="demo">Демо</li></ul>
-        </div>
-      </article>
-      <article class="case wide reveal" tabindex="0" data-title="Клип / атмосфера" style="--h1:50;--h2:280" data-src="media/videos/5.mp4">
-        <div class="poster"><img src="media/posters/5.webp" alt="" loading="lazy"><video muted loop playsinline preload="none" data-src="media/videos/5.mp4"></video><span class="play"></span></div>
-        <div class="case-info">
-          <div class="case-head"><h3>Клип / атмосфера</h3><p class="meta">Арт · 1 мин</p></div>
-          <p class="desc">Атмосферный клип в стилистике плёнки семидесятых: пляж, золотой час, зерно и тёплые цвета. Для музыкантов и брендов, которым нужно настроение и образ, а не прямая реклама.</p>
-          <ul class="tags"><li>Клип</li><li>Стилизация</li><li>Цветокор</li><li class="demo">Демо</li></ul>
-        </div>
-      </article>
+        <p class="foot-note"><span>© <span id="year">2026</span> Horoshi Studios</span><span>Видео, которые работают</span></p>
+      </footer>
     </div>
-  </section>
-
-  <!-- ЧЕМ ЗАНИМАЕМСЯ -->
-  <section class="section" id="about">
-    <img class="sticker front" src="media/stickers/star-a.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:110px;--r:-16deg;right:6%;top:10vh">
-    <header class="section-head reveal">
-      <p class="eyebrow">(02) Чем занимаемся</p>
-      <h2 class="big">От идеи<br>до ролика</h2>
-    </header>
-    <ul class="rows">
-      <li class="row reveal"><span class="n">01</span><h3>Рекламные ролики</h3><p>Идея, сценарий и монтаж под задачу бренда.</p></li>
-      <li class="row reveal"><span class="n">02</span><h3>Motion-дизайн</h3><p>Анимированная графика, титры, заставки, айдентика в движении.</p></li>
-      <li class="row reveal"><span class="n">03</span><h3>AI-видео</h3><p>Генеративные сцены и персонажи, которые трудно или дорого снять.</p></li>
-      <li class="row reveal"><span class="n">04</span><h3>Монтаж и соцсети</h3><p>Reels, Shorts, TikTok: ритм, субтитры, звук, нарезки.</p></li>
-    </ul>
-  </section>
-
-
-  <!-- О НАС: команда (фото-заглушки, заменить на настоящие) -->
-  <section class="section team" id="team">
-    <img class="sticker back" src="media/stickers/star-c.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:170px;--r:-8deg;left:-1%;top:6vh">
-    <img class="sticker front" src="media/stickers/star-a.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:120px;--r:18deg;right:4%;top:20vh">
-    <header class="section-head reveal">
-      <p class="eyebrow">(03) О нас</p>
-      <h2 class="big">Кто делает<br>ролики</h2>
-      <p class="lead">Небольшая студия режиссёров, motion-дизайнеров и AI-продюсеров. Придумываем, снимаем или генерируем, монтируем и сдаём в нужных форматах. Без лишних согласований и с живым общением.</p>
-    </header>
-    <ul class="heads">
-      <!-- h0, h1 — реальные фото команды; h2, h3 — заглушки. Подписать: должность и имя -->
-      <li class="head reveal" style="--rot:-3deg"><img src="media/team/h0.webp" alt="Участник команды" loading="lazy"><b>Должность</b><span>Имя Фамилия</span></li>
-      <li class="head reveal" style="--rot:2deg"><img src="media/team/h1.webp" alt="Участник команды" loading="lazy"><b>Должность</b><span>Имя Фамилия</span></li>
-      <li class="head reveal" style="--rot:-2deg"><img src="media/team/h2.webp" alt="Участник команды" loading="lazy"><b>Должность</b><span>Имя Фамилия</span></li>
-      <li class="head reveal" style="--rot:3deg"><img src="media/team/h3.webp" alt="Участник команды" loading="lazy"><b>Должность</b><span>Имя Фамилия</span></li>
-    </ul>
-  </section>
-
-  <!-- КОНТАКТЫ -->
-  <section class="section contacts" id="contacts">
-    <img class="sticker front" src="media/stickers/star-b.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:140px;--r:-12deg;right:10%;top:9vh">
-    <img class="sticker back" src="media/stickers/star-a.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:200px;--r:14deg;right:-2%;top:26vh">
-    <img class="sticker front" src="media/stickers/star-c.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:70px;--r:24deg;left:38%;top:30vh">
-    <p class="eyebrow reveal">(04) Контакты</p>
-    <h2 class="huge reveal">Давайте<br>поговорим</h2>
-    <div class="contact-links reveal">
-      <a class="mail" href="mailto:hello@horoshi.studios">hello@horoshi.studios</a>
-      <a class="btn ghost" href="https://t.me/horoshi_studios" target="_blank" rel="noopener">Telegram ↗</a>
-    </div>
-    <footer class="footer"><span>© <span id="year">2026</span> Horoshi Studios</span><span>Видео, которые работают</span></footer>
   </section>
 </main>
 
-<!-- ОКНО ПРОСМОТРА РОЛИКА -->
+<!-- ОКНО ПАПКИ: ролик, описание и переключатель кейсов -->
 <div class="modal" id="modal" hidden>
-  <div class="modal-box glass" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <button class="modal-close" id="modal-close" aria-label="Закрыть">×</button>
+    <p class="modal-folder" id="modal-folder"></p>
     <h3 id="modal-title"></h3>
     <div class="modal-media" id="modal-media"></div>
-    <p class="modal-desc" id="modal-desc"></p>
+    <div class="modal-info">
+      <p class="modal-meta" id="modal-meta"></p>
+      <p class="modal-desc" id="modal-desc"></p>
+      <ul class="tags" id="modal-tags"></ul>
+    </div>
+    <ul class="thumbs" id="modal-thumbs"></ul>
   </div>
 </div>
 
