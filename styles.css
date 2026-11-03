@@ -66,6 +66,8 @@ h1, h2, h3, p { margin: 0; }
 /* ---------- меню ---------- */
 .nav-wrap { position: fixed; top: 16px; left: 0; right: 0; z-index: 50; display: flex; justify-content: center; padding: 0 12px; pointer-events: none; }
 .nav { pointer-events: auto; display: flex; align-items: center; gap: 8px; padding: 8px 10px 8px 22px; border-radius: 999px; max-width: 100%; }
+.nav-logo img { display: block; height: 34px; width: auto; }
+:root[data-theme="dark"] .nav-logo img { filter: invert(1); }
 .nav-logo { font-family: var(--display); font-weight: 600; font-size: 15px; letter-spacing: -.02em; margin-right: 14px; white-space: nowrap; }
 .nav-logo span { color: var(--accent); font-weight: 500; }
 .nav-links { display: flex; gap: 2px; list-style: none; margin: 0; padding: 0; }
@@ -101,9 +103,10 @@ h1, h2, h3, p { margin: 0; }
 .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
 
 /* логотип (сгенерирован в Higgsfield, прозрачный фон) */
-.logo { margin: 0; width: min(54vw, 640px); transform: translateY(-9vh); }
+.logo { margin: 0; width: min(64vw, 720px); transform: translateY(-9vh); }
 .logo img { display: block; width: 100%; height: auto; transform-origin: 50% 70%;
-  animation: lgIn 1.3s cubic-bezier(.2,1.4,.3,1) .15s both; filter: drop-shadow(0 0 22px rgba(255,255,255,.55)) drop-shadow(0 8px 20px rgba(255,255,255,.25)); }
+  animation: lgIn 1.3s cubic-bezier(.2,1.4,.3,1) .15s both; filter: drop-shadow(0 14px 26px rgba(0,0,0,.35)); }
+:root[data-theme="dark"] .logo img { filter: drop-shadow(0 0 34px rgba(255,200,0,.28)); }
 .logo:hover img { animation: lgWobble .7s ease; }
 @keyframes lgIn { from { opacity: 0; transform: scale(.6) rotate(-5deg); filter: blur(16px); } to { opacity: 1; transform: none; } }
 @keyframes lgWobble { 35% { transform: rotate(-1.8deg) scale(1.025); } 70% { transform: rotate(1.2deg) scale(1.01); } }
@@ -124,11 +127,12 @@ h1, h2, h3, p { margin: 0; }
 
 /* ---------- заголовки: Montserrat Black. Крупные: жёлтый с чёрным контуром; мелкие: обычный тёмный жирный ---------- */
 .t-l, .t-m, .modal-box h3 {
-  margin: 0; font-family: var(--logo-font); font-weight: 900; text-transform: uppercase; line-height: 1.1;
-  color: var(--logo-yellow); text-shadow: var(--logo-shadow-m); text-wrap: balance;
+  margin: 0; font-family: 'Russo One', var(--logo-font); font-weight: 400; text-transform: lowercase; line-height: 1.08; letter-spacing: -.005em;
+  color: #000; -webkit-text-stroke: 1.3px #9b9ba2; paint-order: stroke fill; text-shadow: 0 1px 0 rgba(255,255,255,.7); text-wrap: balance;
 }
-.t-l { font-size: clamp(24px, 4.6vh, 44px); letter-spacing: .02em; }
-.t-m { font-size: clamp(18px, 3vh, 28px); letter-spacing: .02em; }
+:root[data-theme="dark"] .t-l, :root[data-theme="dark"] .t-m, :root[data-theme="dark"] .modal-box h3 { color: #fff; -webkit-text-stroke: 1.3px #55555c; text-shadow: none; }
+.t-l { font-size: clamp(26px, 5vh, 50px); }
+.t-m { font-size: clamp(19px, 3.2vh, 30px); }
 .svc h3, .folder h3, .head b { margin: 0; font-family: var(--logo-font); font-weight: 800; text-transform: uppercase; letter-spacing: .02em; line-height: 1.2; text-shadow: none; color: var(--fg); }
 .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
 
@@ -200,7 +204,7 @@ h1, h2, h3, p { margin: 0; }
 .modal-box { position: relative; width: min(820px, 100%); max-height: calc(100svh - 32px); overflow: auto; padding: 22px 22px 18px; border-radius: 26px; background: var(--bg); animation: pop2 .4s cubic-bezier(.2,.8,.2,1); }
 @keyframes pop2 { from { transform: scale(.94) translateY(12px); opacity: 0; } }
 .modal-folder { margin: 0 44px 4px 4px; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-.modal-box h3 { font-size: clamp(18px, 3vw, 28px); margin: 0 44px 14px 4px; letter-spacing: .02em; }
+.modal-box h3 { font-size: clamp(20px, 3.2vw, 30px); margin: 0 44px 14px 4px; }
 .modal-close { position: absolute; top: 14px; right: 16px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: var(--line); color: var(--fg); font-size: 22px; cursor: pointer; }
 .modal-media { aspect-ratio: 16/9; max-height: 46svh; width: 100%; border-radius: 16px; overflow: hidden; display: grid; place-items: center; background: #000; color: #fff; text-align: center; }
 .modal-media video { width: 100%; height: 100%; display: block; object-fit: contain; }
