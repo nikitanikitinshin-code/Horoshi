@@ -56,7 +56,8 @@
 
   <!-- ПЕРВАЯ СТРАНИЦА -->
   <section class="hero">
-    <video class="hero-bg" src="media/bg-loop.mp4" poster="media/bg-poster.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+    <video class="hero-bg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+    <script>(function(){var v=document.querySelector(".hero-bg"),m=matchMedia("(max-width: 720px)").matches;v.poster=m?"media/bg-poster-m.jpg":"media/bg-poster.jpg";v.src=m?"media/bg-loop-m.mp4":"media/bg-loop.mp4";})();</script>
     <h1 class="logo"><img src="media/logo.webp" width="1600" height="740" alt="Horoshi Studios" fetchpriority="high"></h1>
     <div class="hero-foot">
       <p class="hero-lead">Делаем ролики, которые смотрят до конца. Реклама, motion и AI-видео.</p>
@@ -77,11 +78,11 @@
     <img class="sticker front" src="media/stickers/heart.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:62px;--r:-12deg;left:2.5%;top:21vh">
     <img class="sticker front m2" src="media/stickers/smile.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:70px;--r:10deg;right:3%;top:19vh">
     <img class="sticker front" src="media/stickers/bolt.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:56px;--r:14deg;left:2.5%;top:46vh">
-    <img class="sticker front m1" src="media/stickers/flower.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:64px;--r:-16deg;left:50%;top:57vh">
+    <img class="sticker front m1" src="media/stickers/flower.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:64px;--r:-16deg;left:31%;top:56vh">
     <img class="sticker back" src="media/stickers/spiral.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:70px;--r:8deg;left:1.5%;bottom:14vh">
     <img class="sticker front" src="media/stickers/arrow.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:78px;--r:-6deg;right:13%;top:9vh">
     <img class="sticker back m3" src="media/stickers/squiggle.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:92px;--r:6deg;right:2.5%;bottom:26vh">
-    <img class="sticker front" src="media/stickers/star-b.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:60px;--r:-18deg;left:44%;bottom:20vh">
+    <img class="sticker front" src="media/stickers/star-b.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:60px;--r:-18deg;left:34%;bottom:11vh">
     <img class="sticker back" src="media/stickers/star-a.webp" alt="" aria-hidden="true" width="360" height="360" style="--w:74px;--r:12deg;right:1.5%;top:54vh">
     <div class="p2-in">
       <div class="p2-top">
@@ -98,8 +99,8 @@
         <h3>Реклама и продукт</h3>
         <span class="f-pill">3 ролика</span>
         <ul class="f-items" hidden>
-          <li data-src="media/videos/0.mp4" data-poster="media/posters/0.webp" data-title="Рекламный ролик" data-meta="Бренд · 30 сек"><p class="d">Пример рекламного ролика для парфюмерного бренда: стеклянный флакон на пьедестале, всплеск жидкости в замедленной съёмке, чистая студийная картинка. Берём на себя идею, раскадровку, генерацию кадров, монтаж, цветокоррекцию и звук.</p><ul class="tg"><li>Идея и сценарий</li><li>Генерация</li><li>Монтаж</li><li>Цвет и звук</li><li class="demo">Демо</li></ul></li>
-          <li data-src="media/videos/4.mp4" data-poster="media/posters/4.webp" data-title="Промо продукта" data-meta="Продукт · 45 сек"><p class="d">Промо наушников: детали разлетаются в невесомости и собираются обратно. Показываем устройство и его преимущества так, как не снять на обычную камеру. Подходит для карточек маркетплейсов, лендингов и рекламы.</p><ul class="tg"><li>Продукт</li><li>3D</li><li>Промо</li><li class="demo">Демо</li></ul></li>
+          <li data-ar="v" data-src="media/videos/0.mp4" data-poster="media/posters/0.webp" data-title="Рекламный ролик" data-meta="Бренд · 30 сек"><p class="d">Пример рекламного ролика для парфюмерного бренда: стеклянный флакон на пьедестале, всплеск жидкости в замедленной съёмке, чистая студийная картинка. Берём на себя идею, раскадровку, генерацию кадров, монтаж, цветокоррекцию и звук.</p><ul class="tg"><li>Идея и сценарий</li><li>Генерация</li><li>Монтаж</li><li>Цвет и звук</li><li class="demo">Демо</li></ul></li>
+          <li data-ar="v" data-src="media/videos/4.mp4" data-poster="media/posters/4.webp" data-title="Промо продукта" data-meta="Продукт · 45 сек"><p class="d">Промо наушников: детали разлетаются в невесомости и собираются обратно. Показываем устройство и его преимущества так, как не снять на обычную камеру. Подходит для карточек маркетплейсов, лендингов и рекламы.</p><ul class="tg"><li>Продукт</li><li>3D</li><li>Промо</li><li class="demo">Демо</li></ul></li>
           <li data-src="media/videos/5.mp4" data-poster="media/posters/5.webp" data-title="Клип / атмосфера" data-meta="Арт · 1 мин"><p class="d">Атмосферный клип в стилистике плёнки семидесятых: пляж, золотой час, зерно и тёплые цвета. Для музыкантов и брендов, которым нужно настроение и образ, а не прямая реклама.</p><ul class="tg"><li>Клип</li><li>Стилизация</li><li>Цветокор</li><li class="demo">Демо</li></ul></li>
         </ul>
       </article>
@@ -114,7 +115,7 @@
         <ul class="f-items" hidden>
           <li data-src="media/videos/1.mp4" data-poster="media/posters/1.webp" data-title="Motion-графика" data-meta="Заставка · 15 сек"><p class="d">Заставка из глянцевых 3D-форм в фирменных цветах. Подходит для интро канала, презентации или рекламной вставки. Подгоняем под вашу айдентику: палитра, ритм, длительность и форматы выгрузки.</p><ul class="tg"><li>Motion</li><li>3D</li><li>Айдентика</li><li class="demo">Демо</li></ul></li>
           <li data-src="media/videos/2.mp4" data-poster="media/posters/2.webp" data-title="AI-видео" data-meta="Концепт · 20 сек"><p class="d">Концепт-ролик в генеративной графике: гигантский кит над розовой пустыней, кинематографичный свет и движение камеры. Собираем сцены, которые трудно или слишком дорого снять, без съёмочной группы и локаций.</p><ul class="tg"><li>AI-видео</li><li>Концепт</li><li>Визуальный стиль</li><li class="demo">Демо</li></ul></li>
-          <li data-src="media/videos/3.mp4" data-poster="media/posters/3.webp" data-title="Reels / Shorts" data-meta="Соцсети · вертикаль"><p class="d">Вертикальный ролик для Reels, Shorts и TikTok: дождливый неоновый город, живая камера, быстрый ритм. Делаем серии под вашу рубрику: сценарий, монтаж, субтитры, звук и нарезки под каждую площадку.</p><ul class="tg"><li>Reels</li><li>Shorts</li><li>TikTok</li><li>Субтитры</li><li class="demo">Демо</li></ul></li>
+          <li data-ar="v" data-src="media/videos/3.mp4" data-poster="media/posters/3.webp" data-title="Reels / Shorts" data-meta="Соцсети · вертикаль"><p class="d">Вертикальный ролик для Reels, Shorts и TikTok: дождливый неоновый город, живая камера, быстрый ритм. Делаем серии под вашу рубрику: сценарий, монтаж, субтитры, звук и нарезки под каждую площадку.</p><ul class="tg"><li>Reels</li><li>Shorts</li><li>TikTok</li><li>Субтитры</li><li class="demo">Демо</li></ul></li>
         </ul>
       </article>
         </div>

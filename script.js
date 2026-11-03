@@ -92,6 +92,7 @@
     descEl.textContent = it.desc;
     tagsEl.innerHTML = it.tags;
     media.innerHTML = '';
+    media.classList.toggle('v', !!it.v);
     if (it.src) {
       var v = document.createElement('video');
       v.src = it.src; v.poster = it.poster; v.controls = true; v.autoplay = true; v.playsInline = true;
@@ -105,7 +106,7 @@
     lastFocus = f;
     current = Array.prototype.map.call(f.querySelectorAll('.f-items > li'), function (li) {
       return { src: li.dataset.src, poster: li.dataset.poster, title: li.dataset.title, meta: li.dataset.meta,
-               desc: li.querySelector('.d').textContent, tags: li.querySelector('.tg').innerHTML };
+               desc: li.querySelector('.d').textContent, tags: li.querySelector('.tg').innerHTML, v: li.dataset.ar === 'v' };
     });
     folderLbl.textContent = f.dataset.folder || '';
     thumbsEl.innerHTML = '';

@@ -140,14 +140,14 @@ h1, h2, h3, p { margin: 0; }
 
 /* ---------- вторая страница: всё на одном экране, много воздуха ---------- */
 .page2 { position: relative; isolation: isolate; overflow: clip; min-height: 100svh; background: var(--bg); }
-.p2-in { position: relative; max-width: 1280px; margin: 0 auto; min-height: 100svh; display: flex; flex-direction: column; justify-content: space-between; gap: clamp(10px, 2.2vh, 40px);
+.p2-in { position: relative; max-width: 1280px; margin: 0 auto; min-height: 100svh; display: flex; flex-direction: column; justify-content: space-between; gap: clamp(8px, 1.4vh, 40px);
   padding: clamp(78px, 10vh, 112px) clamp(20px, 5vw, 72px) clamp(14px, 3vh, 36px); }
 .p2-head { margin-bottom: clamp(14px, 3vh, 30px); text-align: center; }
 
 /* папки как в «PROMPTS»: серая папка, веер карточек с белой рамкой, матовое стекло, тёмная кнопка */
 .folders { display: grid; grid-template-columns: repeat(2, auto); justify-content: center; gap: clamp(32px, 9vw, 150px); }
-.folder { --fw: min(24vw, 25vh, 270px); position: relative; width: var(--fw); cursor: pointer; display: grid; justify-items: center; gap: clamp(4px, 1vh, 10px); text-align: center; -webkit-tap-highlight-color: transparent; outline-offset: 10px; }
-.f-art { position: relative; width: 100%; aspect-ratio: 1.12; }
+.folder { --fw: min(26vw, 23vh, 260px); position: relative; cursor: pointer; display: grid; justify-items: center; gap: clamp(4px, 1vh, 10px); text-align: center; -webkit-tap-highlight-color: transparent; outline-offset: 10px; }
+.f-art { position: relative; width: var(--fw); aspect-ratio: 1.12; }
 .f-back { position: absolute; left: 14%; right: 4%; top: 10%; bottom: 14%; border-radius: 18px; background: #e4e4e7; }
 .f-back::before { content: ""; position: absolute; left: 0; top: -9%; width: 40%; height: 14%; background: #e4e4e7; border-radius: 14px 14px 0 0; clip-path: polygon(0 100%, 0 18%, 8% 0, 72% 0, 86% 52%, 90% 100%); }
 .f-cards { position: absolute; inset: 0; pointer-events: none; }
@@ -173,18 +173,18 @@ h1, h2, h3, p { margin: 0; }
 :root[data-theme="dark"] .f-pill { background: rgba(246,246,248,.1); }
 
 /* чем занимаемся / о нас */
-.p2-mid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(36px, 8vw, 130px); align-items: start; }
-.svc { list-style: none; margin: clamp(10px, 2vh, 18px) 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 2.4vh, 22px) 28px; }
+.p2-mid { display: grid; grid-template-columns: .76fr 1.24fr; gap: clamp(28px, 6vw, 96px); align-items: start; }
+.svc { list-style: none; margin: clamp(10px, 2vh, 18px) 0 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: clamp(10px, 2vh, 18px); }
 .svc li { display: grid; gap: 4px; align-content: start; }
 .svc h3 { font-size: clamp(12px, 1.9vh, 15px); }
 .svc p { font-size: 13px; line-height: 1.45; color: var(--muted); }
-.heads { justify-content: flex-start; list-style: none; margin: clamp(10px, 2vh, 18px) 0 0; padding: 0; display: flex; gap: clamp(8px, 1.6vw, 24px); align-items: flex-end; }
-.head { flex: 0 1 140px; min-width: 0; display: grid; justify-items: center; gap: 2px; text-align: center; }
+.heads { justify-content: center; list-style: none; margin: clamp(10px, 2vh, 18px) 0 0; padding: 0; display: flex; gap: clamp(8px, 1.6vw, 24px); align-items: flex-end; }
+.head { flex: 0 1 auto; min-width: 0; display: grid; justify-items: center; gap: 2px; text-align: center; }
 .head img { display: block; height: clamp(64px, 11.5vh, 120px); width: auto; max-width: 100%; object-fit: contain; transform: rotate(var(--rot, 0deg));
   filter: drop-shadow(0 8px 12px rgba(11,11,16,.2)); transition: transform .5s cubic-bezier(.34,1.56,.64,1); }
 .head:hover img { transform: rotate(calc(var(--rot) * -1)) scale(1.06) translateY(-5px); }
-.head b { margin-top: 8px; font-size: clamp(9px, 1.35vh, 11px); }
-.head span { font-size: 11px; color: var(--muted); }
+.head b { margin-top: 8px; font-size: clamp(11px, 1.7vh, 15px); }
+.head span { font-size: 13px; color: var(--muted); }
 
 /* контакты */
 .p2-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 28px; padding-top: clamp(12px, 2.4vh, 22px); border-top: 1px solid var(--line); }
@@ -302,16 +302,16 @@ h1, h2, h3, p { margin: 0; }
 
 
 /* анимированные лица: живое фото -> пластилин -> 3D. Белый фон ролика растворяется в светлой теме */
-.head .face { display: block; width: clamp(92px, 12.5vh, 150px); height: auto; aspect-ratio: 1; mix-blend-mode: multiply; margin-bottom: -8px; background: #fff; transform: rotate(var(--rot, 0deg)); transition: transform .5s cubic-bezier(.34,1.56,.64,1); }
+.head .face { display: block; width: clamp(170px, 35vh, 380px); height: auto; aspect-ratio: 1; mix-blend-mode: multiply; margin: -21% -13% -15%; background: transparent; transform: rotate(var(--rot, 0deg)); transition: transform .5s cubic-bezier(.34,1.56,.64,1); }
 .head:hover .face { transform: rotate(calc(var(--rot) * -1)) scale(1.05); }
-:root[data-theme="dark"] .head .face { mix-blend-mode: normal; border-radius: 28px; }
-@media (max-width: 860px) { .head .face { width: 140px; } }
+:root[data-theme="dark"] .head .face { mix-blend-mode: normal; border-radius: 28px; background: #fff; }
+@media (max-width: 860px) { .heads { flex-direction: column; align-items: center; gap: 4px; } .head .face { width: min(96vw, 400px); margin: -20% 0 -18%; } .head b { font-size: 15px; } .head span { font-size: 14px; } }
 @media (prefers-reduced-motion: reduce) { .head .face { animation: none; } }
 
 
 /* ---------- наклонная сетка работ (tilted grid) ---------- */
 .p2-top { position: relative; isolation: isolate; }
-.tilt { position: absolute; z-index: -1; left: 50%; width: 100vw; margin-left: -50vw; top: -78px; bottom: -34px; overflow: hidden; perspective: 1000px; pointer-events: none; }
+.tilt { position: absolute; z-index: -1; left: 50%; width: 100vw; margin-left: -50vw; top: -78px; bottom: 0; overflow: hidden; perspective: 1000px; pointer-events: none; }
 .tilt::after { content: ""; position: absolute; inset: 0; background:
   radial-gradient(ellipse 52% 62% at 50% 50%, rgba(var(--veil), .93) 0, rgba(var(--veil), .8) 55%, rgba(var(--veil), 0) 100%),
   linear-gradient(to bottom, rgba(var(--veil), 1) 0, rgba(var(--veil), 0) 20%, rgba(var(--veil), 0) 55%, rgba(var(--veil), .7) 80%, rgba(var(--veil), 1) 100%); }
@@ -323,3 +323,16 @@ h1, h2, h3, p { margin: 0; }
 @keyframes tcol { to { transform: translateY(-50%); } }
 @media (max-width: 860px) { .tilt { top: -40px; } .tcol { flex-basis: 120px; } }
 @media (prefers-reduced-motion: reduce) { .tcol-in { animation: none; } }
+
+@media (min-width: 861px) and (max-height: 800px) { .head .face { width: 31vh; } .folder { --fw: min(26vw, 21vh, 240px); } }
+
+
+/* вертикальные ролики в окне работ */
+.modal-media.v { aspect-ratio: 9/16; width: auto; height: min(58svh, 620px); max-height: none; margin: 0 auto; }
+@media (max-width: 720px) {
+  .modal { padding: 10px; align-items: end; }
+  .modal-box { padding: 16px 14px 14px; border-radius: 22px; max-height: calc(100svh - 20px); }
+  .modal-media { max-height: 40svh; }
+  .modal-media.v { height: min(56svh, 520px); }
+  .thumbs { overflow-x: auto; }
+}
