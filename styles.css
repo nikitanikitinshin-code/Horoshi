@@ -92,21 +92,23 @@ h1, h2, h3, p { margin: 0; }
 /* ---------- первая страница ---------- */
 .hero { min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 110px 20px 90px; position: relative; }
 
-/* логотип в стиле винтажных киотитров: жёлтый, чёрная обводка, выдавленная тень */
-.logo { margin: 0; width: min(92vw, 980px); }
-.logo svg { width: 100%; height: auto; overflow: visible; display: block; }
-.logo text { font-family: 'Ultra', 'Alfa Slab One', 'Arial Black', serif; letter-spacing: .01em; }
-.lg-ext { fill: #000; stroke: #000; stroke-width: 11; stroke-linejoin: round; transform: translate(calc(var(--i) * .8px), calc(var(--i) * 1px)); animation: lgExt .9s cubic-bezier(.2,.8,.2,1) .9s both; }
-.lg-face { fill: #ffd91a; stroke: #000; stroke-width: 11; stroke-linejoin: round; paint-order: stroke fill; }
-.lg-studios { fill: #ffd91a; stroke: #000; stroke-width: 9; stroke-linejoin: round; paint-order: stroke fill; letter-spacing: .12em; }
-.lg-group { transform-box: fill-box; transform-origin: 50% 70%; animation: lgIn 1.2s cubic-bezier(.2,1.4,.3,1) .15s both; }
-.lg-small { animation: lgSmall .8s cubic-bezier(.2,1.4,.3,1) 1.3s both; transform-box: fill-box; transform-origin: center; }
-@keyframes lgIn { from { opacity: 0; transform: scale(.6) rotate(-4deg); filter: blur(14px); } to { opacity: 1; transform: none; filter: blur(0); } }
-@keyframes lgExt { from { transform: translate(0,0); } }
-@keyframes lgSmall { from { opacity: 0; transform: translateY(-24px) scale(.7); } to { opacity: 1; transform: none; } }
-.logo:hover .lg-group { animation: lgWobble .6s ease; }
-@keyframes lgWobble { 40% { transform: rotate(-1.6deg) scale(1.02); } 70% { transform: rotate(1deg); } }
-:root[data-theme="dark"] .logo { filter: drop-shadow(0 0 28px rgba(255,200,0,.25)); }
+/* логотип (сгенерирован в Higgsfield, прозрачный фон) */
+.logo { margin: 0; width: min(92vw, 940px); }
+.logo img { display: block; width: 100%; height: auto; transform-origin: 50% 70%;
+  animation: lgIn 1.3s cubic-bezier(.2,1.4,.3,1) .15s both; filter: drop-shadow(0 18px 30px rgba(11,11,16,.14)); }
+.logo:hover img { animation: lgWobble .7s ease; }
+@keyframes lgIn { from { opacity: 0; transform: scale(.6) rotate(-5deg); filter: blur(16px); } to { opacity: 1; transform: none; } }
+@keyframes lgWobble { 35% { transform: rotate(-1.8deg) scale(1.025); } 70% { transform: rotate(1.2deg) scale(1.01); } }
+:root[data-theme="dark"] .logo img { filter: drop-shadow(0 0 34px rgba(255,200,0,.28)); }
+
+/* свинья на заднем фоне: чёрный фон ролика растворяется через blend-режим */
+.pig { position: fixed; z-index: -1; right: -6vw; bottom: -2vh; width: min(82vw, 1200px); pointer-events: none; opacity: .5; }
+.pig video { display: block; width: 100%; height: auto; }
+.pig-light { mix-blend-mode: multiply; }
+.pig-dark { mix-blend-mode: screen; display: none; }
+:root[data-theme="dark"] .pig-light { display: none; }
+:root[data-theme="dark"] .pig-dark { display: block; }
+:root[data-theme="dark"] .pig { opacity: .75; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
 .hero-foot { position: absolute; left: 0; right: 0; bottom: 28px; padding: 0 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px; opacity: 0; animation: fadeUp 1s ease 1.6s forwards; }
@@ -211,6 +213,7 @@ h1, h2, h3, p { margin: 0; }
   .row { grid-template-columns: 38px 1fr; }
   .row p { grid-column: 2; }
   .hero-foot { padding: 0 16px; }
+  .pig { width: 150vw; right: -50vw; bottom: 4vh; opacity: .4; }
 }
 @media (max-width: 400px) { .nav-links li:first-child { display: none; } }
 
