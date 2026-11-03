@@ -74,6 +74,8 @@
   function openCase(card) {
     lastFocus = card;
     title.textContent = card.dataset.title || '';
+    var d = card.querySelector('.desc');
+    document.getElementById('modal-desc').textContent = d ? d.textContent : '';
     media.innerHTML = '';
     if (card.dataset.src) {
       var v = document.createElement('video');
