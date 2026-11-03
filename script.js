@@ -33,7 +33,7 @@
 
   // --- подсветка пункта меню по текущей секции ---
   var links = document.querySelectorAll('.nav-links a');
-  var sections = ['top', 'cases', 'about', 'contacts'].map(function (id) { return document.getElementById(id); });
+  var sections = ['top', 'cases', 'about', 'team', 'contacts'].map(function (id) { return document.getElementById(id); });
   function onScroll() {
     var y = window.scrollY + window.innerHeight * 0.4, cur = 0;
     sections.forEach(function (s, i) { if (s && s.offsetTop <= y) cur = i; });
