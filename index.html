@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Horoshi Studios — видеопродакшн</title>
+<meta name="description" content="Horoshi Studios — студия, которая делает ролики: реклама, motion, AI-видео, монтаж. Посмотрите, что мы умеем.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23111'/%3E%3Ctext x='16' y='23' font-size='20' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'%3EH%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+  // тема до отрисовки, чтобы не мигало
+  try {
+    var t = localStorage.getItem('horoshi-theme');
+    if (!t) t = 'light';
+    document.documentElement.dataset.theme = t;
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<!-- SVG-фильтр «жидкого стекла»: искажает фон за панелью (Chromium), в остальных браузерах — обычный blur -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="liquid" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="4" result="noise"/>
+    <feGaussianBlur in="noise" stdDeviation="2" result="soft"/>
+    <feDisplacementMap in="SourceGraphic" in2="soft" scale="38" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<div class="bg" aria-hidden="true">
+  <i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><i class="grain"></i>
+</div>
+
+<!-- ВЕРХНЕЕ МЕНЮ -->
+<header class="nav-wrap">
+  <nav class="nav glass" aria-label="Основное меню">
+    <a class="nav-logo" href="#top" aria-label="Horoshi Studios — на главную">Horoshi<span>.studios</span></a>
+    <ul class="nav-links">
+      <li><a href="#top" class="active">Главная</a></li>
+      <li><a href="#cases">Кейсы</a></li>
+      <li><a href="#about">Чем занимаемся</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+    <button class="toggle" id="theme-toggle" role="switch" aria-checked="false" aria-label="Тёмная тема">
+      <span class="toggle-track">
+        <svg class="ic sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3 17 7M7 17l-1.7 1.7"/></svg>
+        <svg class="ic moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+        <span class="toggle-knob"></span>
+      </span>
+    </button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ПЕРВАЯ СТРАНИЦА -->
+  <section class="hero">
+    <h1 class="logo-reveal" aria-label="Horoshi Studios">
+      <span class="logo-word" aria-hidden="true"></span>
+      <span class="logo-sub" aria-hidden="true">studios</span>
+    </h1>
+    <p class="hero-lead">Делаем ролики, которые хочется досмотреть до конца.</p>
+    <div class="hero-cta">
+      <a class="btn glass" href="#cases">Смотреть кейсы</a>
+      <a class="btn ghost" href="#contacts">Обсудить проект</a>
+    </div>
+    <a class="scroll-hint" href="#cases" aria-label="Прокрутить вниз"><span></span></a>
+  </section>
+
+  <!-- КЕЙСЫ -->
+  <section class="section" id="cases">
+    <header class="section-head reveal">
+      <p class="eyebrow">Кейсы</p>
+      <h2>Избранные работы</h2>
+      <p>Витрина того, что мы умеем. Нажмите на карточку, чтобы посмотреть ролик.</p>
+    </header>
+
+    <!-- Чтобы подключить ролик: добавьте data-src="videos/имя.mp4" в нужную карточку (положите файл в папку videos/). -->
+    <div class="cases">
+      <article class="case reveal" tabindex="0" data-title="Рекламный ролик" style="--h1:262;--h2:320">
+        <div class="poster"><span class="play"></span></div>
+        <div class="case-info"><h3>Рекламный ролик</h3><p>Бренд · 30 сек</p></div>
+      </article>
+      <article class="case reveal" tabindex="0" data-title="Motion-графика" style="--h1:190;--h2:250">
+        <div class="poster"><span class="play"></span></div>
+        <div class="case-info"><h3>Motion-графика</h3><p>Заставка · 15 сек</p></div>
+      </article>
+      <article class="case reveal" tabindex="0" data-title="AI-видео" style="--h1:20;--h2:330">
+        <div class="poster"><span class="play"></span></div>
+        <div class="case-info"><h3>AI-видео</h3><p>Концепт · 20 сек</p></div>
+      </article>
+      <article class="case reveal" tabindex="0" data-title="Reels / Shorts" style="--h1:140;--h2:200">
+        <div class="poster"><span class="play"></span></div>
+        <div class="case-info"><h3>Reels / Shorts</h3><p>Соцсети · вертикаль</p></div>
+      </article>
+      <article class="case reveal" tabindex="0" data-title="Промо продукта" style="--h1:300;--h2:30">
+        <div class="poster"><span class="play"></span></div>
+        <div class="case-info"><h3>Промо продукта</h3><p>Продукт · 45 сек</p></div>
+      </article>
+      <article class="case reveal" tabindex="0" data-title="Клип / атмосфера" style="--h1:50;--h2:280">
+        <div class="poster"><span class="play"></span></div>
+        <div class="case-info"><h3>Клип / атмосфера</h3><p>Арт · 1 мин</p></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ЧЕМ ЗАНИМАЕМСЯ -->
+  <section class="section" id="about">
+    <header class="section-head reveal">
+      <p class="eyebrow">Чем занимаемся</p>
+      <h2>От идеи до готового ролика</h2>
+      <p>Берём весь процесс на себя: придумываем, снимаем или генерируем, собираем и отдаём в нужных форматах.</p>
+    </header>
+    <div class="services">
+      <div class="service glass reveal"><b>01</b><h3>Рекламные ролики</h3><p>Идея, сценарий и монтаж под задачу бренда.</p></div>
+      <div class="service glass reveal"><b>02</b><h3>Motion-дизайн</h3><p>Анимированная графика, титры, заставки, айдентика в движении.</p></div>
+      <div class="service glass reveal"><b>03</b><h3>AI-видео</h3><p>Генеративные сцены и персонажи, которые трудно или дорого снять.</p></div>
+      <div class="service glass reveal"><b>04</b><h3>Монтаж и соцсети</h3><p>Reels, Shorts, TikTok: ритм, субтитры, звук, нарезки.</p></div>
+    </div>
+  </section>
+
+  <!-- КОНТАКТЫ -->
+  <section class="section contacts" id="contacts">
+    <div class="contact-card glass reveal">
+      <p class="eyebrow">Контакты</p>
+      <h2>Расскажите о задаче</h2>
+      <p>Ответим в течение дня и предложим формат под ваш бюджет.</p>
+      <div class="contact-links">
+        <a class="btn glass" href="mailto:hello@horoshi.studios">hello@horoshi.studios</a>
+        <a class="btn ghost" href="https://t.me/horoshi_studios" target="_blank" rel="noopener">Telegram</a>
+      </div>
+    </div>
+    <footer class="footer">© <span id="year">2026</span> Horoshi Studios</footer>
+  </section>
+</main>
+
+<!-- ОКНО ПРОСМОТРА РОЛИКА -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-box glass" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" id="modal-close" aria-label="Закрыть">×</button>
+    <h3 id="modal-title"></h3>
+    <div class="modal-media" id="modal-media"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
