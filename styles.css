@@ -101,13 +101,13 @@ h1, h2, h3, p { margin: 0; }
 .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
 
 /* логотип (сгенерирован в Higgsfield, прозрачный фон) */
-.logo { margin: 0; width: min(64vw, 720px); transform: translateY(-9vh); }
+.logo { margin: 0; width: min(54vw, 640px); transform: translateY(-9vh); }
 .logo img { display: block; width: 100%; height: auto; transform-origin: 50% 70%;
-  animation: lgIn 1.3s cubic-bezier(.2,1.4,.3,1) .15s both; filter: drop-shadow(0 14px 26px rgba(0,0,0,.35)); }
+  animation: lgIn 1.3s cubic-bezier(.2,1.4,.3,1) .15s both; filter: drop-shadow(0 0 22px rgba(255,255,255,.55)) drop-shadow(0 8px 20px rgba(255,255,255,.25)); }
 .logo:hover img { animation: lgWobble .7s ease; }
 @keyframes lgIn { from { opacity: 0; transform: scale(.6) rotate(-5deg); filter: blur(16px); } to { opacity: 1; transform: none; } }
 @keyframes lgWobble { 35% { transform: rotate(-1.8deg) scale(1.025); } 70% { transform: rotate(1.2deg) scale(1.01); } }
-:root[data-theme="dark"] .logo img { filter: drop-shadow(0 0 34px rgba(255,200,0,.28)); }
+
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
@@ -134,35 +134,37 @@ h1, h2, h3, p { margin: 0; }
 
 /* ---------- вторая страница: всё на одном экране, много воздуха ---------- */
 .page2 { position: relative; isolation: isolate; overflow: clip; min-height: 100svh; background: var(--bg); }
-.p2-in { position: relative; max-width: 1280px; margin: 0 auto; min-height: 100svh; display: flex; flex-direction: column; justify-content: space-between; gap: clamp(16px, 3.6vh, 46px);
-  padding: clamp(84px, 11.5vh, 116px) clamp(20px, 5vw, 72px) clamp(20px, 4vh, 36px); }
+.p2-in { position: relative; max-width: 1280px; margin: 0 auto; min-height: 100svh; display: flex; flex-direction: column; justify-content: space-between; gap: clamp(10px, 2.2vh, 40px);
+  padding: clamp(78px, 10vh, 112px) clamp(20px, 5vw, 72px) clamp(14px, 3vh, 36px); }
 .p2-head { margin-bottom: clamp(14px, 3vh, 30px); text-align: center; }
 
-/* стеклянные папки */
-.folders { display: grid; grid-template-columns: repeat(3, auto); justify-content: center; gap: clamp(22px, 5.5vw, 96px); }
-.folder { --fw: min(21vw, 24vh * 1.3, 290px); position: relative; width: var(--fw); aspect-ratio: 1.3; cursor: pointer; -webkit-tap-highlight-color: transparent; outline-offset: 8px; }
-.f-back { position: absolute; inset: 12% 0 0 0; border-radius: 22px; background: linear-gradient(160deg, #3a3a44, #202027 55%, #15151a);
-  box-shadow: 0 16px 34px rgba(11,11,16,.28), inset 0 1px 0 rgba(255,255,255,.18); }
-.f-back::before { content: ""; position: absolute; left: 0; top: -13%; width: 40%; height: 18%; background: linear-gradient(160deg, #3a3a44, #26262d);
-  clip-path: polygon(0 100%, 0 26%, 6% 0, 70% 0, 82% 44%, 88% 100%); border-radius: 12px 0 0 0; }
-.f-sheets { position: absolute; left: 8%; right: 8%; top: 17%; bottom: 26%; pointer-events: none; }
-.sheet { position: absolute; top: 0; width: 70%; height: 100%; object-fit: cover; border-radius: 9px; border: 3px solid #fff; box-shadow: 0 8px 18px rgba(0,0,0,.22);
-  transition: transform .6s cubic-bezier(.2,.9,.3,1.2); will-change: transform; }
-.sheet.s1 { left: 0; transform: translateY(16%) rotate(-5deg); }
-.sheet.s2 { right: 0; transform: translateY(10%) rotate(6deg); }
-.f-front { position: absolute; left: 0; right: 0; bottom: 0; height: 56%; padding: 4% 7% 5%; display: flex; flex-direction: column; justify-content: flex-end; gap: 3px; border-radius: 20px; color: #fff;
-  background: linear-gradient(180deg, rgba(255,255,255,.2), rgba(255,255,255,.07));
-  -webkit-backdrop-filter: blur(14px) saturate(160%); backdrop-filter: blur(14px) saturate(160%);
-  border: 1px solid rgba(255,255,255,.28); box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 10px 26px rgba(0,0,0,.3);
-  transform-origin: 50% 100%; transition: transform .55s cubic-bezier(.2,.9,.3,1.1); }
-.folder h3 { font-size: clamp(13px, 2.1vh, 18px); color: #fff; }
-.f-front p { font-size: 12px; font-weight: 500; opacity: .75; }
-.f-go { position: absolute;  right: 7%; bottom: 14%; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 13px; background: var(--logo-yellow); color: #111; transition: transform .4s; }
-.folder:hover .sheet.s1, .folder:focus-visible .sheet.s1 { transform: translateY(-20%) rotate(-9deg); }
-.folder:hover .sheet.s2, .folder:focus-visible .sheet.s2 { transform: translateY(-30%) rotate(10deg); }
-.folder:hover .f-front, .folder:focus-visible .f-front { transform: perspective(700px) rotateX(-17deg); }
-.folder:hover .f-go { transform: rotate(45deg) scale(1.1); }
+/* папки как в «PROMPTS»: серая папка, веер карточек с белой рамкой, матовое стекло, тёмная кнопка */
+.folders { display: grid; grid-template-columns: repeat(2, auto); justify-content: center; gap: clamp(32px, 9vw, 150px); }
+.folder { --fw: min(24vw, 25vh, 270px); position: relative; width: var(--fw); cursor: pointer; display: grid; justify-items: center; gap: clamp(4px, 1vh, 10px); text-align: center; -webkit-tap-highlight-color: transparent; outline-offset: 10px; }
+.f-art { position: relative; width: 100%; aspect-ratio: 1.12; }
+.f-back { position: absolute; left: 14%; right: 4%; top: 10%; bottom: 14%; border-radius: 18px; background: #e4e4e7; }
+.f-back::before { content: ""; position: absolute; left: 0; top: -9%; width: 40%; height: 14%; background: #e4e4e7; border-radius: 14px 14px 0 0; clip-path: polygon(0 100%, 0 18%, 8% 0, 72% 0, 86% 52%, 90% 100%); }
+.f-cards { position: absolute; inset: 0; pointer-events: none; }
+.card { position: absolute; width: 41%; aspect-ratio: .86; object-fit: cover; border: clamp(4px, .5vw, 7px) solid #fff; border-radius: clamp(12px, 1.6vw, 20px); background: #fff; box-shadow: 0 10px 22px rgba(11,11,16,.14);
+  transition: transform .6s cubic-bezier(.2,.9,.3,1.15); will-change: transform; }
+.card.c1 { left: 5%; top: 22%; transform: rotate(-14deg); }
+.card.c2 { left: 30%; top: 12%; width: 40%; z-index: 1; transform: rotate(0deg); }
+.card.c3 { right: 3%; top: 17%; transform: rotate(12deg); }
+.f-front { position: absolute; left: 20%; right: 20%; bottom: 12%; height: 31%; z-index: 2; border-radius: clamp(14px, 1.8vw, 22px);
+  background: linear-gradient(180deg, rgba(255,255,255,.7), rgba(250,250,250,.5)); -webkit-backdrop-filter: blur(14px) saturate(140%); backdrop-filter: blur(14px) saturate(140%);
+  border: 1.5px solid rgba(255,255,255,.95); box-shadow: 0 12px 26px rgba(11,11,16,.14), inset 0 1px 0 #fff; transition: transform .55s cubic-bezier(.2,.9,.3,1.1); }
+.f-go { position: absolute; right: 7%; bottom: 14%; width: clamp(28px, 4.4vh, 40px); height: clamp(28px, 4.4vh, 40px); border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: clamp(13px, 2vh, 18px); background: #2b2b2e; color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,.25); transition: transform .4s; }
+.folder:hover .c1, .folder:focus-visible .c1 { transform: translate(-8%, -10%) rotate(-21deg); }
+.folder:hover .c2, .folder:focus-visible .c2 { transform: translateY(-13%) rotate(-2deg); }
+.folder:hover .c3, .folder:focus-visible .c3 { transform: translate(8%, -9%) rotate(18deg); }
+.folder:hover .f-front, .folder:focus-visible .f-front { transform: translateY(5%); }
+.folder:hover .f-go { transform: rotate(45deg) scale(1.08); }
+.folder h3 { margin: 0; font-family: var(--logo-font); font-weight: 800; letter-spacing: -.01em; text-transform: none; text-shadow: none; color: var(--fg); font-size: clamp(17px, 3vh, 26px); line-height: 1.1; white-space: nowrap; }
+.f-pill { display: inline-block; padding: 4px 16px; border-radius: 999px; background: rgba(11,11,16,.07); color: var(--muted); font-size: 13px; font-weight: 500; }
 .folder.reveal.in:hover { transform: none; }
+:root[data-theme="dark"] .f-back, :root[data-theme="dark"] .f-back::before { background: #2a2a30; }
+:root[data-theme="dark"] .f-front { background: linear-gradient(180deg, rgba(255,255,255,.2), rgba(255,255,255,.07)); border-color: rgba(255,255,255,.3); }
+:root[data-theme="dark"] .f-pill { background: rgba(246,246,248,.1); }
 
 /* чем занимаемся / о нас */
 .p2-mid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(36px, 8vw, 130px); align-items: start; }
@@ -172,7 +174,7 @@ h1, h2, h3, p { margin: 0; }
 .svc p { font-size: 13px; line-height: 1.45; color: var(--muted); }
 .heads { justify-content: flex-start; list-style: none; margin: clamp(10px, 2vh, 18px) 0 0; padding: 0; display: flex; gap: clamp(8px, 1.6vw, 24px); align-items: flex-end; }
 .head { flex: 0 1 140px; min-width: 0; display: grid; justify-items: center; gap: 2px; text-align: center; }
-.head img { display: block; height: clamp(70px, 13vh, 130px); width: auto; max-width: 100%; object-fit: contain; transform: rotate(var(--rot, 0deg));
+.head img { display: block; height: clamp(64px, 11.5vh, 120px); width: auto; max-width: 100%; object-fit: contain; transform: rotate(var(--rot, 0deg));
   filter: drop-shadow(0 8px 12px rgba(11,11,16,.2)); transition: transform .5s cubic-bezier(.34,1.56,.64,1); }
 .head:hover img { transform: rotate(calc(var(--rot) * -1)) scale(1.06) translateY(-5px); }
 .head b { margin-top: 8px; font-size: clamp(9px, 1.35vh, 11px); }
@@ -223,12 +225,12 @@ h1, h2, h3, p { margin: 0; }
   .obj { width: calc(var(--w) * .62); }
   .obj.pop { display: none; }
   .sticker { display: none; }
-  .sticker.m1, .sticker.m2, .sticker.m3 { display: block; width: 44px; bottom: auto; }
-  .sticker.m1 { left: auto; right: 8%; top: 54.5%; }
-  .sticker.m2 { left: 8%; right: auto; top: 71%; }
-  .sticker.m3 { left: auto; right: 9%; top: 83.5%; }
-  .folders { grid-template-columns: 1fr; justify-items: center; row-gap: 26px; }
-  .folder { --fw: min(78vw, 340px); }
+  .sticker.m1, .sticker.m2, .sticker.m3 { display: block; width: 44px !important; bottom: auto !important; }
+  .sticker.m1 { left: auto !important; right: 8% !important; top: 33% !important; }
+  .sticker.m2 { left: 8% !important; right: auto !important; top: 54% !important; }
+  .sticker.m3 { left: auto !important; right: 9% !important; top: 86% !important; }
+  .folders { grid-template-columns: 1fr; justify-items: center; row-gap: 40px; }
+  .folder { --fw: min(72vw, 340px); }
   .p2-mid { grid-template-columns: 1fr; gap: 32px; }
   .heads { flex-wrap: wrap; }
   .head { flex: 1 1 40%; }
