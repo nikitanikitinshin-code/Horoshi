@@ -6,6 +6,7 @@
   --glass-bg: rgba(255,255,255,.6);
   --glass-edge: rgba(255,255,255,.95);
   --glass-shadow: 0 8px 30px rgba(11,11,16,.08);
+  --veil: 255,255,255;
   --accent: #ff3d00;      /* основной акцент */
   --accent2: #2f5bff;     /* второй акцент */
   --accent3: #c6ff1a;     /* кислотный лайм */
@@ -27,6 +28,7 @@
   --glass-bg: rgba(255,255,255,.07);
   --glass-edge: rgba(255,255,255,.22);
   --glass-shadow: 0 10px 40px rgba(0,0,0,.4);
+  --veil: 10,10,13;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -305,3 +307,19 @@ h1, h2, h3, p { margin: 0; }
 :root[data-theme="dark"] .head .face { mix-blend-mode: normal; border-radius: 28px; }
 @media (max-width: 860px) { .head .face { width: 140px; } }
 @media (prefers-reduced-motion: reduce) { .head .face { animation: none; } }
+
+
+/* ---------- наклонная сетка работ (tilted grid) ---------- */
+.p2-top { position: relative; isolation: isolate; }
+.tilt { position: absolute; z-index: -1; left: 50%; width: 100vw; margin-left: -50vw; top: -78px; bottom: -34px; overflow: hidden; perspective: 1000px; pointer-events: none; }
+.tilt::after { content: ""; position: absolute; inset: 0; background:
+  radial-gradient(ellipse 52% 62% at 50% 50%, rgba(var(--veil), .93) 0, rgba(var(--veil), .8) 55%, rgba(var(--veil), 0) 100%),
+  linear-gradient(to bottom, rgba(var(--veil), 1) 0, rgba(var(--veil), 0) 20%, rgba(var(--veil), 0) 55%, rgba(var(--veil), .7) 80%, rgba(var(--veil), 1) 100%); }
+.tilt-plane { position: absolute; inset: -25% -10%; display: flex; justify-content: center; gap: 10px; transform: rotateX(50deg) rotateZ(-14deg) scale(1.2); transform-style: preserve-3d; }
+.tcol { flex: 0 0 clamp(76px, 7vw, 108px); overflow: hidden; }
+.tcol-in { display: flex; flex-direction: column; gap: 12px; animation: tcol var(--s, 36s) linear infinite; }
+.tcol.up .tcol-in { animation-direction: reverse; }
+.tcol img { display: block; width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 10px; border: 3px solid rgba(var(--veil), .9); box-shadow: 0 8px 18px rgba(11,11,16,.12); }
+@keyframes tcol { to { transform: translateY(-50%); } }
+@media (max-width: 860px) { .tilt { top: -40px; } .tcol { flex-basis: 120px; } }
+@media (prefers-reduced-motion: reduce) { .tcol-in { animation: none; } }
