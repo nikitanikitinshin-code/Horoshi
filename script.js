@@ -24,7 +24,7 @@
   });
 
   // --- появление блоков при прокрутке ---
-  var items = document.querySelectorAll('.reveal');
+  var items = document.querySelectorAll('.reveal, .lines');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {

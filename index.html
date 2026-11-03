@@ -31,10 +31,6 @@
   </filter>
 </svg>
 
-<div class="bg" aria-hidden="true">
-  <i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><i class="grain"></i>
-</div>
-
 <!-- ВЕРХНЕЕ МЕНЮ -->
 <header class="nav-wrap">
   <nav class="nav glass" aria-label="Основное меню">
@@ -63,45 +59,51 @@
       <span class="logo-word" aria-hidden="true"></span>
       <span class="logo-sub" aria-hidden="true">studios</span>
     </h1>
-    <p class="hero-lead">Делаем ролики, которые хочется досмотреть до конца.</p>
-    <div class="hero-cta">
-      <a class="btn glass" href="#cases">Смотреть кейсы</a>
-      <a class="btn ghost" href="#contacts">Обсудить проект</a>
+    <div class="hero-foot">
+      <p class="hero-lead">Видеопродакшн: рекламные ролики, motion и AI-видео.</p>
+      <a class="scroll-link" href="#cases">Кейсы <i>↓</i></a>
     </div>
-    <a class="scroll-hint" href="#cases" aria-label="Прокрутить вниз"><span></span></a>
+  </section>
+
+  <!-- МАНИФЕСТ: крупная типографика -->
+  <section class="statement">
+    <h2 class="big lines">
+      <span class="ln"><span>Делаем ролики,</span></span>
+      <span class="ln"><span>которые <em>смотрят</em></span></span>
+      <span class="ln"><span>до конца.</span></span>
+    </h2>
   </section>
 
   <!-- КЕЙСЫ -->
   <section class="section" id="cases">
     <header class="section-head reveal">
-      <p class="eyebrow">Кейсы</p>
-      <h2>Избранные работы</h2>
-      <p>Витрина того, что мы умеем. Нажмите на карточку, чтобы посмотреть ролик.</p>
+      <p class="eyebrow">(01) Кейсы</p>
+      <h2 class="big">Избранные<br>работы</h2>
     </header>
 
-    <!-- Чтобы подключить ролик: добавьте data-src="videos/имя.mp4" в нужную карточку (положите файл в папку videos/). -->
+    <!-- Чтобы подключить ролик: добавьте data-src="videos/имя.mp4" в карточку (файл положите в папку videos/). -->
     <div class="cases">
-      <article class="case reveal" tabindex="0" data-title="Рекламный ролик" style="--h1:262;--h2:320">
+      <article class="case tall reveal" tabindex="0" data-title="Рекламный ролик" style="--h1:262;--h2:320">
         <div class="poster"><span class="play"></span></div>
         <div class="case-info"><h3>Рекламный ролик</h3><p>Бренд · 30 сек</p></div>
       </article>
-      <article class="case reveal" tabindex="0" data-title="Motion-графика" style="--h1:190;--h2:250">
+      <article class="case wide reveal" tabindex="0" data-title="Motion-графика" style="--h1:190;--h2:250">
         <div class="poster"><span class="play"></span></div>
         <div class="case-info"><h3>Motion-графика</h3><p>Заставка · 15 сек</p></div>
       </article>
-      <article class="case reveal" tabindex="0" data-title="AI-видео" style="--h1:20;--h2:330">
+      <article class="case wide reveal" tabindex="0" data-title="AI-видео" style="--h1:14;--h2:330">
         <div class="poster"><span class="play"></span></div>
         <div class="case-info"><h3>AI-видео</h3><p>Концепт · 20 сек</p></div>
       </article>
-      <article class="case reveal" tabindex="0" data-title="Reels / Shorts" style="--h1:140;--h2:200">
+      <article class="case tall reveal" tabindex="0" data-title="Reels / Shorts" style="--h1:140;--h2:200">
         <div class="poster"><span class="play"></span></div>
         <div class="case-info"><h3>Reels / Shorts</h3><p>Соцсети · вертикаль</p></div>
       </article>
-      <article class="case reveal" tabindex="0" data-title="Промо продукта" style="--h1:300;--h2:30">
+      <article class="case tall reveal" tabindex="0" data-title="Промо продукта" style="--h1:300;--h2:30">
         <div class="poster"><span class="play"></span></div>
         <div class="case-info"><h3>Промо продукта</h3><p>Продукт · 45 сек</p></div>
       </article>
-      <article class="case reveal" tabindex="0" data-title="Клип / атмосфера" style="--h1:50;--h2:280">
+      <article class="case wide reveal" tabindex="0" data-title="Клип / атмосфера" style="--h1:50;--h2:280">
         <div class="poster"><span class="play"></span></div>
         <div class="case-info"><h3>Клип / атмосфера</h3><p>Арт · 1 мин</p></div>
       </article>
@@ -111,30 +113,26 @@
   <!-- ЧЕМ ЗАНИМАЕМСЯ -->
   <section class="section" id="about">
     <header class="section-head reveal">
-      <p class="eyebrow">Чем занимаемся</p>
-      <h2>От идеи до готового ролика</h2>
-      <p>Берём весь процесс на себя: придумываем, снимаем или генерируем, собираем и отдаём в нужных форматах.</p>
+      <p class="eyebrow">(02) Чем занимаемся</p>
+      <h2 class="big">От идеи<br>до ролика</h2>
     </header>
-    <div class="services">
-      <div class="service glass reveal"><b>01</b><h3>Рекламные ролики</h3><p>Идея, сценарий и монтаж под задачу бренда.</p></div>
-      <div class="service glass reveal"><b>02</b><h3>Motion-дизайн</h3><p>Анимированная графика, титры, заставки, айдентика в движении.</p></div>
-      <div class="service glass reveal"><b>03</b><h3>AI-видео</h3><p>Генеративные сцены и персонажи, которые трудно или дорого снять.</p></div>
-      <div class="service glass reveal"><b>04</b><h3>Монтаж и соцсети</h3><p>Reels, Shorts, TikTok: ритм, субтитры, звук, нарезки.</p></div>
-    </div>
+    <ul class="rows">
+      <li class="row reveal"><span class="n">01</span><h3>Рекламные ролики</h3><p>Идея, сценарий и монтаж под задачу бренда.</p></li>
+      <li class="row reveal"><span class="n">02</span><h3>Motion-дизайн</h3><p>Анимированная графика, титры, заставки, айдентика в движении.</p></li>
+      <li class="row reveal"><span class="n">03</span><h3>AI-видео</h3><p>Генеративные сцены и персонажи, которые трудно или дорого снять.</p></li>
+      <li class="row reveal"><span class="n">04</span><h3>Монтаж и соцсети</h3><p>Reels, Shorts, TikTok: ритм, субтитры, звук, нарезки.</p></li>
+    </ul>
   </section>
 
   <!-- КОНТАКТЫ -->
   <section class="section contacts" id="contacts">
-    <div class="contact-card glass reveal">
-      <p class="eyebrow">Контакты</p>
-      <h2>Расскажите о задаче</h2>
-      <p>Ответим в течение дня и предложим формат под ваш бюджет.</p>
-      <div class="contact-links">
-        <a class="btn glass" href="mailto:hello@horoshi.studios">hello@horoshi.studios</a>
-        <a class="btn ghost" href="https://t.me/horoshi_studios" target="_blank" rel="noopener">Telegram</a>
-      </div>
+    <p class="eyebrow reveal">(03) Контакты</p>
+    <h2 class="huge reveal">Давайте<br>поговорим</h2>
+    <div class="contact-links reveal">
+      <a class="mail" href="mailto:hello@horoshi.studios">hello@horoshi.studios</a>
+      <a class="btn ghost" href="https://t.me/horoshi_studios" target="_blank" rel="noopener">Telegram ↗</a>
     </div>
-    <footer class="footer">© <span id="year">2026</span> Horoshi Studios</footer>
+    <footer class="footer"><span>© <span id="year">2026</span> Horoshi Studios</span><span>Видео, которые работают</span></footer>
   </section>
 </main>
 
