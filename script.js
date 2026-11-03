@@ -31,6 +31,16 @@
     items.forEach(function (el) { el.classList.add('in'); });
   }
 
+  // --- стикеры: рывковое появление, когда попадают в экран ---
+  var stickers = document.querySelectorAll('.sticker');
+  stickers.forEach(function (s) { s.style.setProperty('--delay', (Math.random() * 0.5 + (s.closest('.hero') ? 1.1 : 0)).toFixed(2) + 's'); });
+  if ('IntersectionObserver' in window) {
+    var so = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); so.unobserve(e.target); } });
+    }, { threshold: 0.2 });
+    stickers.forEach(function (s) { so.observe(s); });
+  } else { stickers.forEach(function (s) { s.classList.add('in'); }); }
+
   // --- подсветка пункта меню по текущей секции ---
   var links = document.querySelectorAll('.nav-links a');
   var sections = ['top', 'cases', 'about', 'team', 'contacts'].map(function (id) { return document.getElementById(id); });
