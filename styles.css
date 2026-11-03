@@ -293,3 +293,11 @@ h1, h2, h3, p { margin: 0; }
   100% { opacity: 0; transform: rotate(calc(var(--r) + 10deg)) scale(.7) translateY(16px); }
 }
 @media (prefers-reduced-motion: reduce) { .obj.pop { display: none; } .obj.bg { filter: blur(6px); } }
+
+
+/* анимированные лица: живое фото -> пластилин -> 3D. Белый фон ролика растворяется в светлой теме */
+.head .face { display: block; width: clamp(92px, 12.5vh, 150px); height: auto; aspect-ratio: 1; mix-blend-mode: multiply; margin-bottom: -8px; background: #fff; transform: rotate(var(--rot, 0deg)); transition: transform .5s cubic-bezier(.34,1.56,.64,1); }
+.head:hover .face { transform: rotate(calc(var(--rot) * -1)) scale(1.05); }
+:root[data-theme="dark"] .head .face { mix-blend-mode: normal; border-radius: 28px; }
+@media (max-width: 860px) { .head .face { width: 140px; } }
+@media (prefers-reduced-motion: reduce) { .head .face { animation: none; } }
