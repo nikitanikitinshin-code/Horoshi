@@ -133,14 +133,14 @@ h1, h2, h3, p { margin: 0; }
 .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
 
 /* ---------- вторая страница: всё на одном экране, много воздуха ---------- */
-.page2 { position: relative; isolation: isolate; min-height: 100svh; background: var(--bg); }
-.p2-in { position: relative; max-width: 1280px; margin: 0 auto; min-height: 100svh; display: flex; flex-direction: column; justify-content: space-between; gap: clamp(14px, 3.2vh, 40px);
-  padding: clamp(80px, 11vh, 112px) clamp(20px, 5vw, 72px) clamp(16px, 3vh, 30px); }
+.page2 { position: relative; isolation: isolate; overflow: clip; min-height: 100svh; background: var(--bg); }
+.p2-in { position: relative; max-width: 1280px; margin: 0 auto; min-height: 100svh; display: flex; flex-direction: column; justify-content: space-between; gap: clamp(16px, 3.6vh, 46px);
+  padding: clamp(84px, 11.5vh, 116px) clamp(20px, 5vw, 72px) clamp(20px, 4vh, 36px); }
 .p2-head { margin-bottom: clamp(14px, 3vh, 30px); text-align: center; }
 
 /* стеклянные папки */
-.folders { display: grid; grid-template-columns: repeat(3, auto); justify-content: center; gap: clamp(18px, 4.5vw, 72px); }
-.folder { --fw: min(23vw, 27vh * 1.3, 320px); position: relative; width: var(--fw); aspect-ratio: 1.3; cursor: pointer; -webkit-tap-highlight-color: transparent; outline-offset: 8px; }
+.folders { display: grid; grid-template-columns: repeat(3, auto); justify-content: center; gap: clamp(22px, 5.5vw, 96px); }
+.folder { --fw: min(21vw, 24vh * 1.3, 290px); position: relative; width: var(--fw); aspect-ratio: 1.3; cursor: pointer; -webkit-tap-highlight-color: transparent; outline-offset: 8px; }
 .f-back { position: absolute; inset: 12% 0 0 0; border-radius: 22px; background: linear-gradient(160deg, #3a3a44, #202027 55%, #15151a);
   box-shadow: 0 16px 34px rgba(11,11,16,.28), inset 0 1px 0 rgba(255,255,255,.18); }
 .f-back::before { content: ""; position: absolute; left: 0; top: -13%; width: 40%; height: 18%; background: linear-gradient(160deg, #3a3a44, #26262d);
@@ -165,14 +165,14 @@ h1, h2, h3, p { margin: 0; }
 .folder.reveal.in:hover { transform: none; }
 
 /* чем занимаемся / о нас */
-.p2-mid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(28px, 6vw, 96px); align-items: start; }
+.p2-mid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(36px, 8vw, 130px); align-items: start; }
 .svc { list-style: none; margin: clamp(10px, 2vh, 18px) 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 2.4vh, 22px) 28px; }
 .svc li { display: grid; gap: 4px; align-content: start; }
 .svc h3 { font-size: clamp(12px, 1.9vh, 15px); }
 .svc p { font-size: 13px; line-height: 1.45; color: var(--muted); }
 .heads { justify-content: flex-start; list-style: none; margin: clamp(10px, 2vh, 18px) 0 0; padding: 0; display: flex; gap: clamp(8px, 1.6vw, 24px); align-items: flex-end; }
 .head { flex: 0 1 140px; min-width: 0; display: grid; justify-items: center; gap: 2px; text-align: center; }
-.head img { display: block; height: clamp(78px, 15vh, 150px); width: auto; max-width: 100%; object-fit: contain; transform: rotate(var(--rot, 0deg));
+.head img { display: block; height: clamp(70px, 13vh, 130px); width: auto; max-width: 100%; object-fit: contain; transform: rotate(var(--rot, 0deg));
   filter: drop-shadow(0 8px 12px rgba(11,11,16,.2)); transition: transform .5s cubic-bezier(.34,1.56,.64,1); }
 .head:hover img { transform: rotate(calc(var(--rot) * -1)) scale(1.06) translateY(-5px); }
 .head b { margin-top: 8px; font-size: clamp(9px, 1.35vh, 11px); }
@@ -218,7 +218,15 @@ h1, h2, h3, p { margin: 0; }
 
 /* ---------- мобильные: второй экран просто становится длиннее ---------- */
 @media (max-width: 860px) {
-  .p2-in { min-height: 0; gap: 36px; }
+  .p2-in { min-height: 0; gap: 60px; padding-top: 96px; padding-bottom: 36px; }
+  .obj.bg { opacity: .4; }
+  .obj { width: calc(var(--w) * .62); }
+  .obj.pop { display: none; }
+  .sticker { display: none; }
+  .sticker.m1, .sticker.m2, .sticker.m3 { display: block; width: 44px; bottom: auto; }
+  .sticker.m1 { left: auto; right: 8%; top: 54.5%; }
+  .sticker.m2 { left: 8%; right: auto; top: 71%; }
+  .sticker.m3 { left: auto; right: 9%; top: 83.5%; }
   .folders { grid-template-columns: 1fr; justify-items: center; row-gap: 26px; }
   .folder { --fw: min(78vw, 340px); }
   .p2-mid { grid-template-columns: 1fr; gap: 32px; }
@@ -267,3 +275,19 @@ h1, h2, h3, p { margin: 0; }
   100% { transform: rotate(var(--r)) scale(1); }
 }
 
+
+
+/* ---------- предметы со стикерами: размытый фон и «выскакивающие» ---------- */
+.obj { position: absolute; width: var(--w, 120px); height: auto; pointer-events: none; user-select: none; transform: rotate(var(--r, 0deg)); }
+.obj.bg { z-index: -1; filter: blur(5px); opacity: .5; }
+:root[data-theme="dark"] .obj.bg { opacity: .35; }
+.obj.pop { z-index: 2; opacity: 0; filter: drop-shadow(0 12px 18px rgba(11,11,16,.25)); }
+.obj.pop.show { animation: objpop 3.6s cubic-bezier(.2,.9,.3,1.2) both; }
+@keyframes objpop {
+  0%   { opacity: 0; transform: rotate(calc(var(--r) - 18deg)) scale(.3) translateY(24px); }
+  12%  { opacity: 1; transform: rotate(calc(var(--r) + 6deg)) scale(1.12); }
+  20%  { transform: rotate(var(--r)) scale(1); }
+  88%  { opacity: 1; transform: rotate(var(--r)) scale(1); }
+  100% { opacity: 0; transform: rotate(calc(var(--r) + 10deg)) scale(.7) translateY(16px); }
+}
+@media (prefers-reduced-motion: reduce) { .obj.pop { display: none; } .obj.bg { filter: blur(6px); } }

@@ -41,6 +41,24 @@
     stickers.forEach(function (s) { so.observe(s); });
   } else { stickers.forEach(function (s) { s.classList.add('in'); }); }
 
+  // --- предметы: по одному выскакивают в случайном месте-слоте ---
+  (function () {
+    var pops = Array.prototype.slice.call(document.querySelectorAll('.obj.pop'));
+    if (!pops.length || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var page2 = document.querySelector('.page2'), last = -1, visible = false;
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { threshold: .25 }).observe(page2);
+    else visible = true;
+    function next() {
+      if (visible && !document.hidden && modal.hidden) {
+        var i; do { i = Math.floor(Math.random() * pops.length); } while (i === last && pops.length > 1);
+        last = i; var el = pops[i];
+        el.classList.remove('show'); void el.offsetWidth; el.classList.add('show');
+      }
+      setTimeout(next, 2600 + Math.random() * 1800);
+    }
+    setTimeout(next, 1800);
+  })();
+
   // --- меню: два экрана. Главная / всё остальное, а клик по пункту подсвечивает его ---
   var links = document.querySelectorAll('.nav-links a');
   var manual = null;
