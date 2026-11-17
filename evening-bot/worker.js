@@ -11,6 +11,7 @@
 const NOTION_DATABASE_ID = "41bb616b66b681cc8863eb2e3b2f52f3"; // «Дневник дня»
 const NOTION_VERSION = "2022-06-28";
 const TZ_OFFSET_HOURS = 3; // Москва
+const SUMMARY_CRON = "40 20 * * *"; // 23:40 по Москве — ночной итог
 const EVENING_PROMPT =
   "Привет! Как прошёл день? 🎙\n\n" +
   "Запиши голосовое как удобно:\n" +
@@ -56,12 +57,28 @@ export default {
     });
   },
 
-  // Cron Trigger: вечернее сообщение
+  // Cron Triggers: вечерний вопрос и ночной итог
   async scheduled(event, env, ctx) {
     if (!env.OWNER_CHAT_ID) return;
-    ctx.waitUntil(send(env, env.OWNER_CHAT_ID, EVENING_PROMPT));
+    ctx.waitUntil(event.cron === SUMMARY_CRON ? sendSummary(env) : send(env, env.OWNER_CHAT_ID, EVENING_PROMPT));
   },
 };
+
+// Присылает итог дня, который агент записал в свойство «Итог для Телеграма».
+async function sendSummary(env) {
+  const { date } = diaryDay();
+  const found = await notion(env, `databases/${NOTION_DATABASE_ID}/query`, "POST", {
+    filter: { property: "Дата", date: { equals: date } },
+    page_size: 1,
+  });
+  const page = found.results[0];
+  if (!page) return; // за день ничего не записано — молчим
+  const summary = (page.properties["Итог для Телеграма"]?.rich_text || []).map((t) => t.plain_text).join("");
+  const text = summary
+    ? `Итог дня 🌙\n\n${summary.slice(0, 3500)}\n\n${page.url}`
+    : `Записи за сегодня сохранены, но разбор ещё не готов — он появится в Notion позже.\n\n${page.url}`;
+  await send(env, env.OWNER_CHAT_ID, text);
+}
 
 async function handleUpdate(update, env) {
   const msg = update.message;
@@ -162,6 +179,12 @@ function localNow() {
   return new Date(Date.now() + TZ_OFFSET_HOURS * 3600 * 1000);
 }
 
+// День дневника: записи до 4 утра относятся ко вчерашнему дню.
+function diaryDay() {
+  const day = new Date(localNow().getTime() - 4 * 3600 * 1000);
+  return { day, date: day.toISOString().slice(0, 10) };
+}
+
 function dayTitle(d) {
   const months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
   const days = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
@@ -184,9 +207,7 @@ function paragraphs(text) {
 // Дописывает заметку в страницу сегодняшнего дня; если её нет — создаёт.
 async function saveToNotion(env, text, icon) {
   const now = localNow();
-  // Записи до 4 утра относятся ко вчерашнему дню.
-  const day = new Date(now.getTime() - 4 * 3600 * 1000);
-  const date = day.toISOString().slice(0, 10);
+  const { day, date } = diaryDay();
   const time = now.toISOString().slice(11, 16);
   const blocks = paragraphs(`${icon} ${time} — ${text}`);
 
